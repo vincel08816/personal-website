@@ -51,7 +51,6 @@ export default Apps;
 
 const AppsContainer = styled.div`
   display: flex;
-  padding: 0px 48px 0px 48px;
   justify-content: space-between;
   font-size: 15px;
   font-weight: 600;

@@ -3,9 +3,18 @@ import styled from "styled-components";
 export default function Footer() {
   return (
     <StyledFooter>
-      <Section>aaaa</Section>
+      <Section style={{ marginLeft: "24px" }}>aaaa</Section>
       <Center>Copyright © 2022 Vincent Lee. All rights reserved.</Center>
-      <Section>aaaa</Section>
+      <Section style={{ paddingRight: "38px" }}>
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+          alt="github-footer"
+        />
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+          alt="linkedin-footer"
+        />
+      </Section>
     </StyledFooter>
   );
 }
@@ -18,6 +27,11 @@ const Center = styled.div`
 
 const Section = styled.div`
   padding: 0 48px;
+  img {
+    width: 40px;
+    height: 40px;
+    margin: 0 7px;
+  }
 `;
 
 const StyledFooter = styled.footer`

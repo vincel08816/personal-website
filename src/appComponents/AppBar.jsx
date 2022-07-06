@@ -1,22 +1,30 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import V from "../assets/V.png";
+import ThemeSlider from "./components/Toggle";
 
 export default function AppBar() {
+  const [headerColor, setHeaderColor] = useState();
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setHeaderColor(window.scrollY > 1 && "white");
+    });
+  }, [setHeaderColor]);
+
   return (
-    <TopBar>
+    <TopBar style={{ backgroundColor: headerColor }}>
       <Container>
         <Logo>
-          <Image
-            src="https://cdn.discordapp.com/attachments/594312779545051221/993959492121272380/unknown.png"
-            alt="v"
-          />
+          <Image src={V} alt="v" />
         </Logo>
         <LeftSide>
           <Button style={{ marginLeft: "45px" }}>Home</Button>
           <Button>About Me</Button>
         </LeftSide>
         <RightSide>
-          <Button style={{ marginLeft: "45px" }}>Home</Button>
-          <Button>🛝</Button> {/* {!} 🛝 */}
+          <FilledButton style={{ marginLeft: "45px" }}>Contact Me</FilledButton>
+          <ThemeSlider />
         </RightSide>
       </Container>
     </TopBar>
@@ -34,6 +42,16 @@ const Button = styled.button`
   // change this to onHover later
   border-radius: 9999px;
   background-color: transparent;
+`;
+
+const FilledButton = styled(Button)`
+  border-radius: 9999px;
+  background-color: #374150;
+  color: #e0e2e7;
+  padding: 7px 20px;
+  width: 130px;
+  font-size: 16px;
+  margin-right: 40px;
 `;
 
 const Image = styled.img`
@@ -63,10 +81,12 @@ const TopBar = styled.div`
   height: 72px;
   align-items: center;
   width: 100%;
+  position: fixed;
+  /* background-color: white; */
 `;
 
 const Container = styled.div`
   display: flex;
-  padding: 4px 48px 4px 56px;
+  padding: 4px 15px 4px 56px;
   flex: 1;
 `;

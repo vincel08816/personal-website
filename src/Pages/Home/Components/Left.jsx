@@ -34,26 +34,26 @@ export default function Left() {
 }
 
 const MenuIcon = styled(MenuSVG)`
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
+`;
+
+const StudyIcon = styled(StudySVG)`
   width: 17px;
   height: 17px;
   margin-right: 12px;
 `;
 
-const StudyIcon = styled(StudySVG)`
+const InfoIcon = styled(InfoSVG)`
   width: 18px;
   height: 18px;
   margin-right: 12px;
 `;
 
-const InfoIcon = styled(InfoSVG)`
-  width: 19px;
-  height: 19px;
-  margin-right: 12px;
-`;
-
 const SelectContainer = styled.div`
   margin-top: 20px;
-  font-size: 18px;
+  font-size: 17px;
   font-family: "Source Sans Pro", Arial, sans-serif;
 `;
 
@@ -91,7 +91,7 @@ const Top = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 3;
+  flex: 2;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   background-color: #e9e9e9;

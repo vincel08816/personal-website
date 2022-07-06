@@ -13,6 +13,7 @@ export default function BaseView({ children }) {
           justifyContent: "center",
           flex: 1,
           width: "80%",
+          marginTop: "72px",
         }}
       >
         {children}
