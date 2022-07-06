@@ -5,14 +5,11 @@ import { ReactComponent as StudySVG } from "../../../assets/study.svg";
 
 const Circles = () => (
   <Top>
-    {["#fd5d57", "#fdbc30", "#2ccb40"].map((color) => (
-      <Circle key={color} color={color} />
-    ))}
+    <Circle color={"#fd5d57"} />
+    <Circle color={"#fdbc30"} />
+    <Circle color={"#2ccb40"} />
   </Top>
 );
-/*
-Menu: https://www.svgrepo.com/svg/231012/menu
-*/
 
 export default function Left() {
   return (

@@ -26,7 +26,7 @@ const BaseStyle = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
+  width: 99vw;
   min-height: 100vh;
   background-color: #f3f4f6;
 `;
