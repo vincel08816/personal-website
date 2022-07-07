@@ -23,6 +23,8 @@ export default function AppBar() {
         </Logo>
         <LeftSide>
           <Button style={{ marginLeft: "45px" }}>Home</Button>
+          <Button>Experience</Button>
+          <Button>Education</Button>
           <Button>About Me</Button>
         </LeftSide>
         <RightSide>

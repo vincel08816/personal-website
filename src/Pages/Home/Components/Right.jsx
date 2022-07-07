@@ -8,7 +8,7 @@ const AboutMe = () => {
       <SubSection>
         <small>TECHNOLOGIES</small>
         <h3>JavaScript Full-Stack </h3>
-        <p>These technologies will power the whole web app.</p>
+        <p>View the tech stacks and experience offered.</p>
         <CoverImage
           src="https://res.cloudinary.com/practicaldev/image/fetch/s--WPQ75f2s--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/epv55hgtsfi8csprpj9u.jpg"
           alt="mern"
@@ -16,11 +16,11 @@ const AboutMe = () => {
       </SubSection>
       <div style={{ width: "20px" }} />
       <SubSection>
-        <small>TECHNOLOGIES</small>
-        <h3>JavaScript Full-Stack </h3>
-        <p>These technologies will be able to the whole app.</p>
+        <small>EDUCATION</small>
+        <h3>Personal Journey into Tech</h3>
+        <p>Take a look at my motivations and resources.</p>
         <CoverImage
-          src="https://res.cloudinary.com/practicaldev/image/fetch/s--WPQ75f2s--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/epv55hgtsfi8csprpj9u.jpg"
+          src="https://cdn.discordapp.com/attachments/594312779545051221/994688681258528798/unknown.png"
           alt="mern"
         />
       </SubSection>
@@ -31,7 +31,7 @@ const AboutMe = () => {
 export default function Right() {
   return (
     <Container>
-      <Top>About Me</Top>
+      <Title>About Me</Title>
       <Divider />
       <AboutMe />
       <Divider />
@@ -75,7 +75,7 @@ const CoverImage = styled.img`
   border-radius: 7px;
 `;
 
-const Top = styled.h1`
+const Title = styled.h1`
   display: flex;
   margin-top: 1%;
   margin-bottom: 20px;

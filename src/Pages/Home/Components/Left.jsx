@@ -17,7 +17,7 @@ export default function Left() {
       <Circles />
       <SelectContainer>
         {[
-          { Component: MenuIcon, text: "MyApp" },
+          { Component: MenuIcon, text: "My Apps" },
           { Component: StudyIcon, text: "LeetCode" },
           { Component: InfoIcon, text: "About" },
         ].map((a, i) => (

@@ -8,6 +8,7 @@ import Row from "./Row";
 const BDLogo = <img style={{ height: "50px" }} src={blockduelers} alt="bd" />;
 
 // {!} Change this to display grid later
+
 const Apps = () => {
   return (
     <>
