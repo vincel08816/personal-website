@@ -29,7 +29,11 @@ export default function AppBar() {
         </LeftSide>
         <RightSide>
           <FilledButton style={{ marginLeft: "45px" }}>
-            <a href="mailto:info@nftfm.io" target="_blank" rel="noreferrer">
+            <a
+              href="mailto:vincel08816@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               Contact Me
             </a>
           </FilledButton>
