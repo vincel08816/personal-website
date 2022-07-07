@@ -53,14 +53,14 @@ const InfoIcon = styled(InfoSVG)`
 
 const SelectContainer = styled.div`
   margin-top: 20px;
-  font-size: 17px;
+  font-size: 16px;
   font-family: "Source Sans Pro", Arial, sans-serif;
 `;
 
 const Select = styled.div`
   display: flex;
   cursor: pointer;
-  padding: 15px 30px;
+  padding: 11px 30px;
   align-items: center;
   border-radius: 8px;
   ${(props) =>
@@ -76,16 +76,16 @@ const Select = styled.div`
 
 const Circle = styled.div`
   border-radius: 50%;
-  margin: 5px;
-  width: 15px;
-  height: 15px;
+  margin: 4px;
+  width: 14px;
+  height: 14px;
   background-color: ${(props) => props.color};
 `;
 
 const Top = styled.div`
   display: flex;
   margin-top: 1%;
-  padding: 0 15px;
+  padding: 5 30px;
 `;
 
 const Container = styled.div`
@@ -95,5 +95,5 @@ const Container = styled.div`
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   background-color: #e9e9e9;
-  padding: 18px 15px;
+  padding: 22px 15px;
 `;

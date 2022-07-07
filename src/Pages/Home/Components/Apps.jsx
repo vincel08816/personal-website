@@ -3,70 +3,75 @@ import blockduelers from "../../../assets/applogos/blockduelers.png";
 import { ReactComponent as FanfareSVG } from "../../../assets/applogos/fanfare.svg";
 import { ReactComponent as LootboxSVG } from "../../../assets/applogos/lootbox.svg";
 import { ReactComponent as StockswapSVG } from "../../../assets/applogos/stockswap.svg";
+import Row from "./Row";
 
-const BDLogo = (
-  <img
-    style={{ height: "75px", margin: "-5px 0 -15px 0" }}
-    src={blockduelers}
-    alt="bd"
-  />
-);
-
-const App = ({ Logo, text, link = "/" }) => (
-  <AppContainer href={link} target="_blank">
-    {Logo}
-    {text}
-  </AppContainer>
-);
+const BDLogo = <img style={{ height: "50px" }} src={blockduelers} alt="bd" />;
 
 // {!} Change this to display grid later
 const Apps = () => {
-  const Logo = [BDLogo, <FanfareIcon />, <LootboxIcon />, <StockswapIcon />];
-  const row1 = [
-    { text: "Block Duelers", link: "https://www.blockduelers.io/" },
-    { text: "Fanfare", link: "https://www.fanfare.fm/" },
-    { text: "NFT Lootbox", link: "https://www.nftlootbox.com/" },
-    { text: "Stockswap", link: "https://www.stockswap.app/" },
-  ].map((props, index) => <App {...props} Logo={Logo[index]} key={index} />);
-
-  return <AppsContainer style={{ marginTop: "20px" }}>{row1}</AppsContainer>;
+  return (
+    <>
+      <h2 style={{ paddingBottom: "5px" }}>Work Experience</h2>
+      <Container>
+        <Column>
+          <Row
+            title="Block Duelers"
+            link="https://www.blockduelers.io/"
+            Logo={BDLogo}
+            description="Block Duelers is the first decentralized finance project to create true utility for NFTs by utilizing an ever-evolving dueling platform."
+          />
+          <Row
+            title="Fanfare"
+            link="https://www.fanfare.fm/"
+            Logo={<FanfareIcon />}
+            description="Fanfare is the first Audiocentric NFT marketplace."
+            noDivider
+          />
+        </Column>
+        <div style={{ width: "10px" }} />
+        <Column>
+          <Row
+            title="NFT Lootbox"
+            link="https://www.nftlootbox.com/"
+            Logo={<LootboxIcon />}
+            description="An innovative blend of DeFi, NFT, and Loot Box Tech"
+          />
+          <Row
+            title="StockSwap"
+            link="https://www.stockswap.app/"
+            Logo={<StockswapIcon />}
+            description="The most comprehensive stock news, in one Place"
+            noDivider
+          />
+        </Column>
+      </Container>
+    </>
+  );
 };
 
+const Container = styled.div`
+  display: flex;
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
+
 const FanfareIcon = styled(FanfareSVG)`
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 `;
 
 const LootboxIcon = styled(LootboxSVG)`
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 `;
 
 const StockswapIcon = styled(StockswapSVG)`
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 `;
 
 export default Apps;
-
-const AppsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 15px;
-  font-weight: 600;
-`;
-
-const AppContainer = styled.a`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  flex: 1;
-  aspect-ratio: 1;
-  margin: 5px 5px 0 5px;
-  border-radius: 20px;
-  background-color: #e5e2e3;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-`;
