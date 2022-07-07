@@ -28,7 +28,11 @@ export default function AppBar() {
           <Button>About Me</Button>
         </LeftSide>
         <RightSide>
-          <FilledButton style={{ marginLeft: "45px" }}>Contact Me</FilledButton>
+          <FilledButton style={{ marginLeft: "45px" }}>
+            <a href="mailto:info@nftfm.io" target="_blank" rel="noreferrer">
+              Contact Me
+            </a>
+          </FilledButton>
           <ThemeSlider />
         </RightSide>
       </Container>
@@ -57,6 +61,10 @@ const FilledButton = styled(Button)`
   width: 130px;
   font-size: 16px;
   margin-right: 40px;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 const Image = styled.img`

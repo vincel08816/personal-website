@@ -22,14 +22,26 @@ export default function Footer() {
       </Section>
       <Center>Copyright © 2022 Vincent Lee. All rights reserved.</Center>
       <Section style={{ paddingRight: "38px" }}>
-        <img
-          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-          alt="github-footer"
-        />
-        <img
-          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-          alt="linkedin-footer"
-        />
+        <a
+          href="https://github.com/vincel08816/personal-website"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="github-footer"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/vincentlee28"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+            alt="linkedin-footer"
+          />
+        </a>
       </Section>
     </StyledFooter>
   );
