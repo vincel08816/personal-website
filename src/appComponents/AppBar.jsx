@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import L from "../assets/L.png";
 import V from "../assets/V.png";
+
 import ThemeSlider from "./components/Toggle";
 
 export default function AppBar() {
@@ -17,6 +19,7 @@ export default function AppBar() {
       <Container>
         <Logo>
           <Image src={V} alt="v" />
+          <Image src={L} alt="l" style={{ margin: "-3px 0 3px -32px" }} />
         </Logo>
         <LeftSide>
           <Button style={{ marginLeft: "45px" }}>Home</Button>

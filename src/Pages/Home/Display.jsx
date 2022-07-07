@@ -19,6 +19,7 @@ const Container = styled.div`
   margin: 50px;
   background-color: white;
   width: 95%;
+  max-width: 1200px;
   min-height: 600px;
   flex: 1;
   box-shadow: 1px 6px 12px hsl(0, 0%, 75%);

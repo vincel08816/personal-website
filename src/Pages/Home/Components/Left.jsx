@@ -16,18 +16,16 @@ export default function Left() {
     <Container>
       <Circles />
       <SelectContainer>
-        <Select selected>
-          <MenuIcon />
-          My Apps
-        </Select>
-        <Select>
-          <StudyIcon />
-          LeetCode
-        </Select>
-        <Select>
-          <InfoIcon />
-          About
-        </Select>
+        {[
+          { Component: MenuIcon, text: "MyApp" },
+          { Component: StudyIcon, text: "LeetCode" },
+          { Component: InfoIcon, text: "About" },
+        ].map((a, i) => (
+          <Select selected={i === 0}>
+            <a.Component />
+            {a.text}
+          </Select>
+        ))}
       </SelectContainer>
     </Container>
   );
@@ -96,4 +94,7 @@ const Container = styled.div`
   border-bottom-left-radius: 15px;
   background-color: #e9e9e9;
   padding: 22px 15px;
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
 `;

@@ -26,7 +26,7 @@ export const Hero = () => (
     <h1 style={{ fontSize: "75px", marginBottom: "23px", fontWeight: 900 }}>
       Vincent Lee
     </h1>
-    <h2 style={{ fontWeight: "500" }}>
+    <h2 style={{ fontWeight: "500", textAlign: "center" }}>
       Software Engineer. JavaScript Fullstack. Mongo, Express, Node, ReactJS and
       more.
     </h2>
@@ -40,6 +40,11 @@ export const Hero = () => (
 const ButtonContainer = styled.div`
   display: flex;
   margin: 20px;
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 125px;
+  }
 `;
 
 const StyledDownloadSVG = styled.svg`

@@ -57,10 +57,14 @@ const Description = styled.p`
   font-size: 12px;
   color: #c3c3c3;
   height: 15px;
-  max-width: 250px;
+  width: 15vw;
+  max-width: 275px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  @media only screen and (max-width: 600px) {
+    width: 40vw;
+  }
 `;
 
 const TextSide = styled.div`
@@ -84,6 +88,7 @@ const TextSide = styled.div`
     font-size: 8px;
     color: #c3c3c3;
     font-weight: bold;
+    text-align: center;
   }
 `;
 
