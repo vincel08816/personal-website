@@ -1,20 +1,35 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../App";
+import Education from "../Education/Education";
+import Experience from "../Experience/Experience";
 import { Left, Right } from "./components";
 
-// {!} Need to change these to be responsive later
-// {!} Add box shadow to container
+const components = { Education, Experience };
 
 export const Display = () => {
-  const { aboutRef } = useContext(AppContext);
+  const { overlay, aboutRef } = useContext(AppContext);
+  const OverlayComponent = components[overlay];
+  const containerRef = useRef();
+  const [width, setWidth] = useState();
+  const [height, setHeight] = useState();
+
+  const getContainerSize = () => {
+    const newWidth = containerRef.current.clientWidth;
+    setWidth(newWidth);
+    const newHeight = containerRef.current.clientHeight;
+    setHeight(newHeight);
+  };
+
+  useEffect(getContainerSize, []);
 
   return (
     <>
       <div ref={aboutRef} style={{ marginTop: "-30px", height: "60px" }} />
-      <Container>
+      <Container ref={containerRef}>
         <Left />
         <Right />
+        <OverlayComponent width={width} height={height} />
       </Container>
     </>
   );

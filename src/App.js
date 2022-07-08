@@ -12,7 +12,7 @@ export const AppContext = createContext();
 const Wrapper = ({ children }) => {
   const { width, height } = useWindowSize();
   const aboutRef = useRef();
-  const [isOpen, setisOpen] = useState(0);
+  const [overlay, setOverlay] = useState("Experience");
 
   const executeScroll = () =>
     aboutRef.current.scrollIntoView({ screenTop: "200px", behavior: "smooth" });
@@ -24,8 +24,8 @@ const Wrapper = ({ children }) => {
         value={{
           width,
           height,
-          isOpen,
-          setisOpen,
+          overlay,
+          setOverlay,
           aboutRef,
           executeScroll,
         }}
