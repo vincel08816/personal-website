@@ -1,17 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { AppContext } from "../App";
 import L from "../assets/L.png";
 import V from "../assets/V.png";
-
+import useApp from "../contexts/appContext";
 import ThemeSlider from "./components/Toggle";
 
 export default function AppBar() {
   const [headerColor, setHeaderColor] = useState();
-  const { executeScroll } = useContext(AppContext);
 
   const RefButton = ({ children }) => (
-    <Button onClick={executeScroll}>{children}</Button>
+    <Button onClick={useApp().executeScroll}>{children}</Button>
   );
 
   useEffect(() => {

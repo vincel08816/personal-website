@@ -1,25 +1,16 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import { AppContext } from "../../App";
-import useContainerSize from "../../hooks/useContainerSize";
-import Education from "../Education/Education";
-import Experience from "../Experience/Experience";
+import useApp from "../../contexts/appContext";
 import { Left, Right } from "./components";
 
-const components = { Education, Experience };
-
 export const Display = () => {
-  const { overlay, aboutRef } = useContext(AppContext);
-  const OverlayComponent = components[overlay];
-  const { width, height, containerRef } = useContainerSize();
+  const { aboutRef, containerWatch } = useApp();
 
   return (
     <>
       <div ref={aboutRef} style={{ marginTop: "-30px", height: "60px" }} />
-      <Container ref={containerRef}>
+      <Container ref={containerWatch.containerRef}>
         <Left />
         <Right />
-        {OverlayComponent && <OverlayComponent width={width} height={height} />}
       </Container>
     </>
   );

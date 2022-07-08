@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ReactComponent as SidebarSVG } from "../../../assets/sidebar.svg";
 import Apps from "./Apps";
 
 const AboutMe = () => {
@@ -96,10 +95,4 @@ const Divider = styled.div`
 const Container = styled.div`
   flex: 8;
   padding: 60px 40px 20px 40px;
-`;
-
-const SidebarIcon = styled(SidebarSVG)`
-  width: 25px;
-  height: 25px;
-  margin-right: 12px;
 `;
