@@ -3,12 +3,12 @@ import useApp from "../../contexts/appContext";
 import { Left, Right } from "./components";
 
 export const Display = () => {
-  const { aboutRef, containerWatch } = useApp();
+  const { aboutRef } = useApp();
 
   return (
     <>
       <div ref={aboutRef} style={{ marginTop: "-30px", height: "60px" }} />
-      <Container ref={containerWatch.containerRef}>
+      <Container>
         <Left />
         <Right />
       </Container>

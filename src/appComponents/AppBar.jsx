@@ -6,10 +6,10 @@ import useApp from "../contexts/appContext";
 import ThemeSlider from "./components/Toggle";
 
 const RefButton = ({ text }) => {
-  const { executeScroll, openModal } = useApp();
+  const { executeScroll, openModal, aboutRef } = useApp();
 
   const handleClick = () => {
-    executeScroll();
+    executeScroll(aboutRef);
     setTimeout(() => {
       openModal(text);
     }, 250);

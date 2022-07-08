@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import Left from "./Left";
+import Right from "./Right";
 
 const Experience = () => {
   return (
     <Container>
-      <div>Experience</div>
+      <Left />
+      <Right />
     </Container>
   );
 };
@@ -31,7 +34,19 @@ const Container = styled.div`
   border-radius: 15px;
   transition-timing-function: ease-in;
   transition: 1s;
+  /* margin: 25px 0 75px 0; */
+  box-shadow: 1px 6px 12px hsl(0, 0%, 75%);
+  width: 80vw;
+  max-width: 1200px;
+  height: 80%;
+
+  /* makes text unhighlightable */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -khtml-user-select: none;
 
   animation: 1s ease-out 0s 1 slideInFromLeft;
-  /* ${({ width, height }) => `width: ${width}px; height: ${height}px`}; */
 `;

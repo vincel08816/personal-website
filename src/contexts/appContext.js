@@ -1,5 +1,4 @@
 import { createContext, useContext, useRef } from "react";
-import useContainerSize from "../hooks/useContainerSize";
 import useWindowSize from "../hooks/useWindowSize";
 import Education from "../Pages/Education/Education";
 import Experience from "../Pages/Experience/Experience";
@@ -9,32 +8,26 @@ export default function useApp() {
   return { ...useContext(AppContext) };
 }
 
+const executeScroll = (whichRef) =>
+  whichRef.current.scrollIntoView({ screenTop: "100px", behavior: "smooth" });
+
 export const AppContext = createContext();
 
 export function AppProvider({ children }) {
-  const containerWatch = useContainerSize();
-  const { width, height } = useWindowSize();
-  const [presentEducation] = useModal(<Education />);
-  const [presentExperience] = useModal(<Experience />);
-  const modals = {
-    Education: presentEducation,
-    Experience: presentExperience,
-  };
   const aboutRef = useRef();
-  const openModal = (text) => modals[text]();
-
-  const executeScroll = () =>
-    aboutRef.current.scrollIntoView({ screenTop: "100px", behavior: "smooth" });
+  const windowSize = useWindowSize();
+  const table = {
+    Education: useModal(<Education />),
+    Experience: useModal(<Experience />),
+  };
 
   return (
     <AppContext.Provider
       value={{
-        width,
-        height,
+        windowSize,
         aboutRef,
         executeScroll,
-        containerWatch,
-        openModal,
+        openModal: (text) => table[text][0](),
       }}
     >
       {children}
