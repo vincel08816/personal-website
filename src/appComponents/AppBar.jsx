@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { AppContext } from "../App";
 import L from "../assets/L.png";
 import V from "../assets/V.png";
 
@@ -7,6 +8,11 @@ import ThemeSlider from "./components/Toggle";
 
 export default function AppBar() {
   const [headerColor, setHeaderColor] = useState();
+  const { executeScroll } = useContext(AppContext);
+
+  const RefButton = ({ children }) => (
+    <Button onClick={executeScroll}>{children}</Button>
+  );
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -23,9 +29,9 @@ export default function AppBar() {
         </Logo>
         <LeftSide>
           <Button style={{ marginLeft: "45px" }}>Home</Button>
-          <Button>Experience</Button>
-          <Button>Education</Button>
-          <Button>About Me</Button>
+          <RefButton>Experience</RefButton>
+          <RefButton>Education</RefButton>
+          <RefButton>About Me</RefButton>
         </LeftSide>
         <RightSide>
           <FilledButton style={{ marginLeft: "45px" }}>
@@ -99,6 +105,7 @@ const TopBar = styled.div`
   align-items: center;
   width: 100%;
   position: fixed;
+  z-index: 5;
   /* background-color: white; */
 `;
 

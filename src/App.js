@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { createContext } from "react";
+import { createContext, useRef, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import BaseView from "./appComponents/BaseView";
@@ -7,17 +7,27 @@ import useWindowSize from "./hooks/useWindowSize";
 import Home from "./Pages/Home/";
 
 const theme = createTheme({});
-export const HomeContext = createContext();
+export const AppContext = createContext();
 
 const Wrapper = ({ children }) => {
   const { width, height } = useWindowSize();
+  const aboutRef = useRef();
+  const [isOpen, setisOpen] = useState(0);
+
+  const executeScroll = () =>
+    aboutRef.current.scrollIntoView({ screenTop: "200px", behavior: "smooth" });
+  window.scrollTo(0, 0);
 
   return (
     <ThemeProvider theme={theme}>
-      <HomeContext.Provider
+      <AppContext.Provider
         value={{
           width,
           height,
+          isOpen,
+          setisOpen,
+          aboutRef,
+          executeScroll,
         }}
       >
         <BrowserRouter>
@@ -25,7 +35,7 @@ const Wrapper = ({ children }) => {
             <Routes>{children}</Routes>
           </BaseView>
         </BrowserRouter>
-      </HomeContext.Provider>
+      </AppContext.Provider>
     </ThemeProvider>
   );
 };

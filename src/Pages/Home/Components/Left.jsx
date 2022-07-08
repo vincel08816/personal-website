@@ -21,7 +21,7 @@ export default function Left() {
           { Component: StudyIcon, text: "LeetCode" },
           { Component: InfoIcon, text: "About" },
         ].map((a, i) => (
-          <Select selected={i === 0}>
+          <Select key={i + "left"} selected={i === 0}>
             <a.Component />
             {a.text}
           </Select>
