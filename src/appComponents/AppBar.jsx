@@ -5,12 +5,21 @@ import V from "../assets/V.png";
 import useApp from "../contexts/appContext";
 import ThemeSlider from "./components/Toggle";
 
+const RefButton = ({ text }) => {
+  const { executeScroll, openModal } = useApp();
+
+  const handleClick = () => {
+    executeScroll();
+    setTimeout(() => {
+      openModal(text);
+    }, 250);
+  };
+
+  return <Button onClick={handleClick}>{text}</Button>;
+};
+
 export default function AppBar() {
   const [headerColor, setHeaderColor] = useState();
-
-  const RefButton = ({ children }) => (
-    <Button onClick={useApp().executeScroll}>{children}</Button>
-  );
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -27,9 +36,9 @@ export default function AppBar() {
         </Logo>
         <LeftSide>
           <Button style={{ marginLeft: "45px" }}>Home</Button>
-          <RefButton>Experience</RefButton>
-          <RefButton>Education</RefButton>
-          <RefButton>About Me</RefButton>
+          {["Experience", "Education", "About Me"].map((text) => (
+            <RefButton key={text} text={text} />
+          ))}
         </LeftSide>
         <RightSide>
           <FilledButton style={{ marginLeft: "45px" }}>

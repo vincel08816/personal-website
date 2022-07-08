@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const Experience = (props) => {
+const Experience = () => {
   return (
-    <Container {...props}>
+    <Container>
       <div>Experience</div>
     </Container>
   );
@@ -33,5 +33,5 @@ const Container = styled.div`
   transition: 1s;
 
   animation: 1s ease-out 0s 1 slideInFromLeft;
-  ${({ width, height }) => `width: ${width}px; height: ${height}px`};
+  /* ${({ width, height }) => `width: ${width}px; height: ${height}px`}; */
 `;

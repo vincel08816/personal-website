@@ -11,15 +11,15 @@ const theme = createTheme({});
 
 const Wrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <AppProvider>
-      <ModalProvider>
+    <ModalProvider>
+      <AppProvider>
         <BrowserRouter>
           <BaseView>
             <Routes>{children}</Routes>
           </BaseView>
         </BrowserRouter>
-      </ModalProvider>
-    </AppProvider>
+      </AppProvider>
+    </ModalProvider>
   </ThemeProvider>
 );
 
