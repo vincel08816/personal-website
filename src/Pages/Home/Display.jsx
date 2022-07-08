@@ -1,6 +1,7 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../App";
+import useContainerSize from "../../hooks/useContainerSize";
 import Education from "../Education/Education";
 import Experience from "../Experience/Experience";
 import { Left, Right } from "./components";
@@ -10,18 +11,7 @@ const components = { Education, Experience };
 export const Display = () => {
   const { overlay, aboutRef } = useContext(AppContext);
   const OverlayComponent = components[overlay];
-  const containerRef = useRef();
-  const [width, setWidth] = useState();
-  const [height, setHeight] = useState();
-
-  const getContainerSize = () => {
-    const newWidth = containerRef.current.clientWidth;
-    setWidth(newWidth);
-    const newHeight = containerRef.current.clientHeight;
-    setHeight(newHeight);
-  };
-
-  useEffect(getContainerSize, []);
+  const { width, height, containerRef } = useContainerSize();
 
   return (
     <>
@@ -29,7 +19,7 @@ export const Display = () => {
       <Container ref={containerRef}>
         <Left />
         <Right />
-        <OverlayComponent width={width} height={height} />
+        {OverlayComponent && <OverlayComponent width={width} height={height} />}
       </Container>
     </>
   );
