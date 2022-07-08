@@ -73,6 +73,12 @@ const CoverImage = styled.img`
   object-fit: cover;
   overflow: hidden;
   border-radius: 7px;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 `;
 
 const Title = styled.h1`

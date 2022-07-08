@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 /*
 {!} Make Buttons Links
+{!} Add onHover Effects
 {!} Add styling for disabled button
 */
 
@@ -75,8 +76,3 @@ const DisabledButton = styled(StyledDownload)`
   color: rgba(156, 163, 175, 1);
   cursor: not-allowed;
 `;
-
-// const Link = styled(NavLink)`
-//   color: white;
-//   text-decoration: none;
-// `;

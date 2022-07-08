@@ -35,4 +35,12 @@ const Container = styled.div`
   min-height: 600px;
   flex: 1;
   box-shadow: 1px 6px 12px hsl(0, 0%, 75%);
+
+  /* makes text unhighlightable */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -khtml-user-select: none;
 `;
