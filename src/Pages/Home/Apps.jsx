@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import blockduelers from "../../../assets/applogos/blockduelers.png";
-import { ReactComponent as FanfareSVG } from "../../../assets/applogos/fanfare.svg";
-import { ReactComponent as LootboxSVG } from "../../../assets/applogos/lootbox.svg";
-import { ReactComponent as StockswapSVG } from "../../../assets/applogos/stockswap.svg";
+import blockduelers from "../../assets/applogos/blockduelers.png";
+import { ReactComponent as FanfareSVG } from "../../assets/applogos/fanfare.svg";
+import { ReactComponent as LootboxSVG } from "../../assets/applogos/lootbox.svg";
+import { ReactComponent as StockswapSVG } from "../../assets/applogos/stockswap.svg";
 import Row from "./Row";
 
 const BDLogo = <img style={{ height: "50px" }} src={blockduelers} alt="bd" />;

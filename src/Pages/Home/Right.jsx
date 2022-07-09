@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import useApp from "../../../contexts/appContext";
+import useApp from "../../contexts/appContext";
 import Apps from "./Apps";
 
 const AboutMe = () => {

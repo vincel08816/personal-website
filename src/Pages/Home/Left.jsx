@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { ReactComponent as InfoSVG } from "../../../assets/info.svg";
-import { ReactComponent as MenuSVG } from "../../../assets/menu.svg";
-import { ReactComponent as StudySVG } from "../../../assets/study.svg";
+import { ReactComponent as InfoSVG } from "../../assets/info.svg";
+import { ReactComponent as MenuSVG } from "../../assets/menu.svg";
+import { ReactComponent as StudySVG } from "../../assets/study.svg";
 
 const Circles = () => (
   <Top>
