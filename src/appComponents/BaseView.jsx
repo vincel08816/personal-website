@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import AppBar from "./AppBar";
 import Footer from "./Footer";
@@ -29,9 +28,4 @@ const BaseStyle = styled.div`
   min-height: 100vh;
   background-color: #f3f4f6;
   overflow-x: hidden;
-`;
-
-const Link = styled(NavLink)`
-  color: white;
-  text-decoration: none;
 `;

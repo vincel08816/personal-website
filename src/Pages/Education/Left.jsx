@@ -4,7 +4,7 @@ export default function Left() {
   return (
     <>
       <Container>
-        <BackgroundImage src="https://res.cloudinary.com/practicaldev/image/fetch/s--xq8xxUmL--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://external-preview.redd.it/x7vVnP3L75Wh4ApmXedKjze9b7ZuH5h7oW-4xbHMiHQ.jpg%3Fauto%3Dwebp%26s%3Db7d6873eed8c442bb685a083b3b4bfff6dd009ac" />
+        <BackgroundImage src="https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" />
       </Container>
       <Top>
         <CircleContainer>
@@ -12,9 +12,9 @@ export default function Left() {
           <Circle color={"#fdbc30"} />
           <Circle color={"#2ccb40"} />
         </CircleContainer>
-        <Description>TECHNOLOGIES</Description>
-        <Title>Vincent's Skills</Title>
-        <Title>And Languages</Title>
+        <Description>EDUCATION</Description>
+        <Title>Personal Journey</Title>
+        <Title>Into Web Development</Title>
       </Top>
     </>
   );
@@ -26,6 +26,7 @@ const Description = styled.div`
   font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 1px 1px #000000;
 `;
 
 const Title = styled.h2`
@@ -34,6 +35,7 @@ const Title = styled.h2`
   margin-bottom: 5px;
   font-size: 32px;
   font-weight: 400;
+  text-shadow: 1px 1px #000000;
 `;
 
 const CircleContainer = styled.div`
@@ -64,6 +66,14 @@ const BackgroundImage = styled.img`
   height: 100%;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  filter: brightness(80%);
+
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 `;
 
 const Container = styled.div`
