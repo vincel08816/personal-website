@@ -35,7 +35,7 @@ learned about React lifecycles and dealt with asyncronous code.
         <li>
           Configured subdomain to host an administrative dashboard using Heroku
           to assist with monthly airdrops and generating more NFTs to the
-          lootbox prizepool.
+          lootbox prizepool
         </li>
         <li>
           Implemented asynchronous smart contract reads utilizing JavaScript
@@ -111,11 +111,11 @@ export const Lootbox = () => (
       <ul>
         <li>
           Assisted with styling, designing, and creation of the chatbox. Used
-          socketIO, styled-components, and keyframes.
+          socketIO, styled-components, and keyframes
         </li>
         <li>
           Assisted in various UI tasks such as updating roadmaps and adding
-          reference pages as well as polishing pages and fixing bugs.
+          reference pages as well as polishing pages and fixing bugs
         </li>
       </ul>
     </P>
