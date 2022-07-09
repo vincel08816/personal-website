@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.948156d7.css",
+    "main.js": "/static/js/main.479da45d.js",
+    "static/js/27.4569c532.chunk.js": "/static/js/27.4569c532.chunk.js",
+    "static/media/blockduelers.png": "/static/media/blockduelers.089bb7c37c582e791ae7.png",
+    "static/media/stockswap.svg": "/static/media/stockswap.cb92e2efb495cc3c2c8a07de5e992a48.svg",
+    "static/media/L.png": "/static/media/L.2500b368ddbdb5da6e12.png",
+    "static/media/V.png": "/static/media/V.66dd110f03ef2e83ca89.png",
+    "static/media/fanfare.svg": "/static/media/fanfare.a06f12f60583ea7352e3c36fd4fe938f.svg",
+    "static/media/study.svg": "/static/media/study.bd2da009f6dcb793f6c5f8624ffcee4c.svg",
+    "static/media/lootbox.svg": "/static/media/lootbox.d8ebf512d23630e0040ac7531f58fa0c.svg",
+    "static/media/menu.svg": "/static/media/menu.2c560e576215600ce1b84836e9e2303d.svg",
+    "static/media/info.svg": "/static/media/info.7806e9b9d88cbb3e23bdbf9a17ee5db4.svg",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.948156d7.css",
+    "static/js/main.479da45d.js"
+  ]
+}
