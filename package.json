@@ -16,6 +16,7 @@
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "mui": "^0.0.1",
+    "nth-check": "^2.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
@@ -35,10 +36,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "engines": {
-    "node": "18.2.0",
-    "yarn": "1.22.15"
   },
   "browserslist": {
     "production": [
