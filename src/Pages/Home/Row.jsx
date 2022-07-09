@@ -25,6 +25,7 @@ export default function Row({ Logo, title, description, link, noDivider }) {
           </div>
         </div>
         {!noDivider && <Divider />}
+        {title === "Fanfare" && <Divider mobileOnly />}
       </TextSide>
     </RowContainer>
   );
@@ -96,4 +97,9 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   background-color: #e5e2e3;
+  ${(props) =>
+    props.mobileOnly &&
+    `  @media only screen and (min-width: 600px) {
+    display: none;
+  }`}
 `;

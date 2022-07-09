@@ -4,6 +4,7 @@ import L from "../assets/L.png";
 import V from "../assets/V.png";
 import useApp from "../contexts/appContext";
 import ThemeSlider from "./components/Toggle";
+import MobileDrawer from "./MobileDrawer";
 
 const RefButton = ({ text }) => {
   const { executeScroll, openModal, aboutRef } = useApp();
@@ -15,7 +16,11 @@ const RefButton = ({ text }) => {
     }, 250);
   };
 
-  return <Button onClick={handleClick}>{text}</Button>;
+  return (
+    <Button hideMobile onClick={handleClick}>
+      {text}
+    </Button>
+  );
 };
 
 export default function AppBar() {
@@ -35,7 +40,7 @@ export default function AppBar() {
           <Image src={L} alt="l" style={{ margin: "-3px 0 3px -32px" }} />
         </Logo>
         <LeftSide>
-          <Button style={{ marginLeft: "45px" }}>Home</Button>
+          {/* <Button style={{ marginLeft: "45px" }}>Home</Button> */}
           {["Experience", "Education", "About Me"].map((text) => (
             <RefButton key={text} text={text} />
           ))}
@@ -51,6 +56,7 @@ export default function AppBar() {
             </a>
           </FilledButton>
           <ThemeSlider />
+          <MobileDrawer />
         </RightSide>
       </Container>
     </TopBar>
@@ -68,6 +74,12 @@ const Button = styled.button`
   // change this to onHover later
   border-radius: 9999px;
   background-color: transparent;
+  ${(props) =>
+    props.hideMobile &&
+    `@media only screen and (max-width: 900px) {
+      display: none
+    }
+  `}
 `;
 
 const FilledButton = styled(Button)`
@@ -82,10 +94,20 @@ const FilledButton = styled(Button)`
     color: inherit;
     text-decoration: none;
   }
+
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const Image = styled.img`
   width: 64px;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 `;
 
 const Logo = styled.div`
@@ -112,7 +134,7 @@ const TopBar = styled.div`
   align-items: center;
   width: 100%;
   position: fixed;
-  z-index: 5;
+  z-index: 1201;
   /* background-color: white; */
 `;
 

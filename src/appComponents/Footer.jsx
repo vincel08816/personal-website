@@ -51,6 +51,10 @@ const Center = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 900px) {
+    flex: 0;
+  }
 `;
 
 const Section = styled.div`
@@ -60,6 +64,10 @@ const Section = styled.div`
     width: 40px;
     height: 40px;
     margin: 0 7px;
+    @media only screen and (max-width: 900px) {
+      width: 30px;
+      height: 30px;
+    }
   }
 `;
 
@@ -72,4 +80,10 @@ const StyledFooter = styled.footer`
   justify-content: center;
   height: 100px;
   background-color: white;
+  margin-left: 12px;
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    height: 150px;
+    justify-content: space-evenly;
+  }
 `;
