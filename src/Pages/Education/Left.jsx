@@ -56,6 +56,9 @@ const Top = styled.div`
   display: flex;
   padding: 5 30px;
   flex-direction: column;
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const BackgroundImage = styled.img`

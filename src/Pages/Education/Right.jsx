@@ -22,10 +22,12 @@ export default function Right() {
           development skills. At 42, I also met my roommate who later invited me
           to join his startup Simple Breakthrough.
         </P>
-        <Image
-          src="https://foothillscript.com/wp-content/uploads/2019/12/20191002_175300.jpg"
-          alt="42"
-        />
+        <Wrapper>
+          <Image
+            src="https://foothillscript.com/wp-content/uploads/2019/12/20191002_175300.jpg"
+            alt="42"
+          />
+        </Wrapper>
         <P>
           <b>Simple Breakthrough</b>
         </P>
@@ -39,10 +41,12 @@ export default function Right() {
           from idea to design to implementation, touching all areas of the
           stack.
         </P>
-        <Image
-          src="https://images.unsplash.com/photo-1618401479427-c8ef9465fbe1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2643&q=80"
-          alt="Simple Breakthrough"
-        />
+        <Wrapper>
+          <Image
+            src="https://images.unsplash.com/photo-1618401479427-c8ef9465fbe1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2643&q=80"
+            alt="Simple Breakthrough"
+          />
+        </Wrapper>
         <P>
           <b>Continuous Learning</b>
         </P>
@@ -54,21 +58,35 @@ export default function Right() {
           secure chat messenger, and a platform for developers to share
           portfolios and stories.
         </P>
-        <Image
-          src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
-          alt="Studying"
-        />
+        <Wrapper>
+          <Image
+            src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
+            alt="Studying"
+          />
+        </Wrapper>
       </InnerContainer>
     </Container>
   );
 }
+
+const Wrapper = styled.div`
+  position: relative;
+  padding-top: 56.25%;
+  margin-top: -12px;
+  padding-bottom: 20px;
+`;
 
 const Image = styled.img`
   flex: 1;
   margin: 20px 0;
   aspect-ratio: 16/10;
   object-fit: cover;
-  padding-bottom: 20px;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
 `;
 
 const P = styled.div`
@@ -81,7 +99,7 @@ const P = styled.div`
 `;
 
 const InnerContainer = styled.div`
-  padding: 80px 72px 40px 60px;
+  padding: 80px 72px 80px 60px;
   display: flex;
   flex-direction: column;
   line-height: 1.4;
