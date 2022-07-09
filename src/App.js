@@ -2,19 +2,24 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import BaseView from "./appComponents/BaseView";
-import Home from "./Pages/Home/";
+import { AppProvider } from "./contexts/appContext";
+import { ModalProvider } from "./contexts/modalContext";
 
-// {!} TODO: Add Not found page if I have time...
+import Home from "./Pages/Home/";
 
 const theme = createTheme({});
 
 const Wrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <BrowserRouter>
-      <BaseView>
-        <Routes>{children}</Routes>
-      </BaseView>
-    </BrowserRouter>
+    <ModalProvider>
+      <AppProvider>
+        <BrowserRouter>
+          <BaseView>
+            <Routes>{children}</Routes>
+          </BaseView>
+        </BrowserRouter>
+      </AppProvider>
+    </ModalProvider>
   </ThemeProvider>
 );
 

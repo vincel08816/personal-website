@@ -2,16 +2,29 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import L from "../assets/L.png";
 import V from "../assets/V.png";
-
+import useApp from "../contexts/appContext";
 import ThemeSlider from "./components/Toggle";
+
+const RefButton = ({ text }) => {
+  const { executeScroll, openModal, aboutRef } = useApp();
+
+  const handleClick = () => {
+    executeScroll(aboutRef);
+    setTimeout(() => {
+      openModal(text);
+    }, 250);
+  };
+
+  return <Button onClick={handleClick}>{text}</Button>;
+};
 
 export default function AppBar() {
   const [headerColor, setHeaderColor] = useState();
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setHeaderColor(window.scrollY > 1 && "white");
-    });
+    window.addEventListener("scroll", () =>
+      setHeaderColor(window.scrollY > 1 && "white")
+    );
   }, [setHeaderColor]);
 
   return (
@@ -23,9 +36,9 @@ export default function AppBar() {
         </Logo>
         <LeftSide>
           <Button style={{ marginLeft: "45px" }}>Home</Button>
-          <Button>Experience</Button>
-          <Button>Education</Button>
-          <Button>About Me</Button>
+          {["Experience", "Education", "About Me"].map((text) => (
+            <RefButton key={text} text={text} />
+          ))}
         </LeftSide>
         <RightSide>
           <FilledButton style={{ marginLeft: "45px" }}>
@@ -99,6 +112,7 @@ const TopBar = styled.div`
   align-items: center;
   width: 100%;
   position: fixed;
+  z-index: 5;
   /* background-color: white; */
 `;
 

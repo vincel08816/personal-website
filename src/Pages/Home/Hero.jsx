@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 /*
 {!} Make Buttons Links
+{!} Add onHover Effects
 {!} Add styling for disabled button
 */
 
@@ -23,19 +24,28 @@ const DownloadButton = ({ children, disabled }) => {
 
 export const Hero = () => (
   <>
-    <h1 style={{ fontSize: "75px", marginBottom: "23px", fontWeight: 900 }}>
-      Vincent Lee
-    </h1>
-    <h2 style={{ fontWeight: "500", textAlign: "center" }}>
+    <Me>Vincent Lee</Me>
+    <RandomLines>
       Software Engineer. JavaScript Fullstack. Mongo, Express, Node, ReactJS and
       more.
-    </h2>
+    </RandomLines>
     <ButtonContainer>
       <DownloadButton>DOWNLOAD VINCENT'S RESUME</DownloadButton>
       <DownloadButton disabled>DOWNLOAD VINCENT'S RESUME</DownloadButton>
     </ButtonContainer>
   </>
 );
+
+const Me = styled.h1`
+  font-size: 75px;
+  margin-bottom: 23px;
+  font-weight: 900;
+`;
+
+const RandomLines = styled.h2`
+  font-weight: 500;
+  text-align: center;
+`;
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -75,8 +85,3 @@ const DisabledButton = styled(StyledDownload)`
   color: rgba(156, 163, 175, 1);
   cursor: not-allowed;
 `;
-
-// const Link = styled(NavLink)`
-//   color: white;
-//   text-decoration: none;
-// `;

@@ -7,8 +7,6 @@ import Row from "./Row";
 
 const BDLogo = <img style={{ height: "50px" }} src={blockduelers} alt="bd" />;
 
-// {!} Change this to display grid later
-
 const Apps = () => {
   return (
     <>
@@ -41,7 +39,7 @@ const Apps = () => {
             title="StockSwap"
             link="https://www.stockswap.app/"
             Logo={<StockswapIcon />}
-            description="The most comprehensive stock news, in one Place"
+            description="The most comprehensive stock news, in one place"
             noDivider
           />
         </Column>
