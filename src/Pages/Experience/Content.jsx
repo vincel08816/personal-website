@@ -35,7 +35,7 @@ learned about React lifecycles and dealt with asyncronous code.
         <li>
           Configured subdomain to host an administrative dashboard using Heroku
           to assist with monthly airdrops and generating more NFTs to the
-          lootbox prizepool.
+          lootbox prizepool
         </li>
         <li>
           Implemented asynchronous smart contract reads utilizing JavaScript
@@ -102,7 +102,7 @@ export const Lootbox = () => (
       used to open NFT Loot Boxes. The Loot Boxes contain a variety of NFTs –
       some produced In-House and some from other popular NFT Projects and
       Artists. NFTLootBox.com is a fairer and more exciting way to distribute
-      NFTs. Now Everyone Has A Chance To Get Rare and Valuable NFTs
+      NFTs. Now everyone has a chance to Get rare and valuable NFTs
     </P>
     <P>
       <b>Some notable accomplishments</b>
@@ -111,11 +111,11 @@ export const Lootbox = () => (
       <ul>
         <li>
           Assisted with styling, designing, and creation of the chatbox. Used
-          socketIO, styled-components, and keyframes.
+          socketIO, styled-components, and keyframes
         </li>
         <li>
           Assisted in various UI tasks such as updating roadmaps and adding
-          reference pages as well as polishing pages and fixing bugs.
+          reference pages as well as polishing pages and fixing bugs
         </li>
       </ul>
     </P>

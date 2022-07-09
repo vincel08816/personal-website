@@ -73,7 +73,7 @@ const Wrapper = styled.div`
   position: relative;
   padding-top: 56.25%;
   margin-top: -12px;
-  padding-bottom: 20px;
+  padding-bottom: calc(56.25% / 3);
 `;
 
 const Image = styled.img`
@@ -99,7 +99,7 @@ const P = styled.div`
 `;
 
 const InnerContainer = styled.div`
-  padding: 80px 72px 80px 60px;
+  padding: 80px 72px 25px 60px;
   display: flex;
   flex-direction: column;
   line-height: 1.4;
