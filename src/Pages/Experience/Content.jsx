@@ -102,7 +102,7 @@ export const Lootbox = () => (
       used to open NFT Loot Boxes. The Loot Boxes contain a variety of NFTs –
       some produced In-House and some from other popular NFT Projects and
       Artists. NFTLootBox.com is a fairer and more exciting way to distribute
-      NFTs. Now Everyone Has A Chance To Get Rare and Valuable NFTs
+      NFTs. Now everyone has a chance to Get rare and valuable NFTs
     </P>
     <P>
       <b>Some notable accomplishments</b>
