@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import useApp from "../../contexts/appContext";
-import { Left, Right } from "./components";
+import Left from "./components/Left";
+import Right from "./components/Right";
 
 export const Display = () => {
   const { aboutRef } = useApp();

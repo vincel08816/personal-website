@@ -35,4 +35,25 @@ const Container = styled.div`
   padding: 80px 52px 40px 40px;
   flex: 5;
   overflow-y: auto;
+  -webkit-scrollbar {
+    background-color: #fff;
+    width: 16px;
+  }
+
+  /* background of the scrollbar except button or resizer */
+  -webkit-scrollbar-track {
+    background-color: #fff;
+  }
+
+  /* scrollbar itself */
+  -webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 16px;
+    border: 4px solid #fff;
+  }
+
+  /* set button(top and bottom of the scrollbar) */
+  -webkit-scrollbar-button {
+    display: none;
+  }
 `;
