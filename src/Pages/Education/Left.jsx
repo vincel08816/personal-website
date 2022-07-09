@@ -66,7 +66,7 @@ const BackgroundImage = styled.img`
   height: 100%;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  filter: brightness(80%);
+  filter: brightness(65%);
 
   user-drag: none;
   user-select: none;

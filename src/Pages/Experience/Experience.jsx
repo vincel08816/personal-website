@@ -41,12 +41,12 @@ const Container = styled.div`
   height: 80%;
 
   /* makes text unhighlightable */
-  -webkit-touch-callout: none;
+  /* -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -khtml-user-select: none;
+  -khtml-user-select: none; */
 
   animation: 1s ease-out 0s 1 slideInFromLeft;
 `;

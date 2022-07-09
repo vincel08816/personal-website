@@ -134,7 +134,7 @@ export const StockSwap = () => (
       <b>StockSwap</b>
     </P>
     <P>
-      <i>StockSwapx</i> is a social finance mobile application for investors in
+      <i>StockSwap</i> is a social finance mobile application for investors in
       the stock market. In our MVP, users have the ability to connect their
       brokerage accounts, show off their portfolio, show their trades, post
       blurbs or videos about the market, search individual stock information,
@@ -166,10 +166,10 @@ export const StockSwap = () => (
       </ul>
     </P>
     <Row
-      title="NFT Lootbox"
-      link="https://www.nftlootbox.com/"
+      title="StockSwap"
+      link="https://www.stockswap.app/"
       Logo={<StockswapIcon />}
-      description="An innovative blend of DeFi, NFT, and Loot Box Tech"
+      description="The most comprehensive stock news, in one place"
     />
   </>
 );

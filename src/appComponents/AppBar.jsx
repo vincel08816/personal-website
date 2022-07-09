@@ -22,9 +22,9 @@ export default function AppBar() {
   const [headerColor, setHeaderColor] = useState();
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setHeaderColor(window.scrollY > 1 && "white");
-    });
+    window.addEventListener("scroll", () =>
+      setHeaderColor(window.scrollY > 1 && "white")
+    );
   }, [setHeaderColor]);
 
   return (
