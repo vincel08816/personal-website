@@ -2,6 +2,7 @@ import { createContext, useContext, useRef } from "react";
 import useWindowSize from "../hooks/useWindowSize";
 import Education from "../Pages/Education/Education";
 import Experience from "../Pages/Experience/Experience";
+import LeetCode from "../Pages/LeetCode/LeetCode";
 import useModal from "./modalContext";
 
 export default function useApp() {
@@ -19,6 +20,7 @@ export function AppProvider({ children }) {
   const table = {
     Education: useModal(<Education />),
     Experience: useModal(<Experience />),
+    LeetCode: useModal(<LeetCode />),
   };
 
   return (

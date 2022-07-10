@@ -23,8 +23,8 @@ const MobileDrawer = () => {
 
   return (
     <Container>
-      <IconButton>
-        <MenuIcon fontSize={"large"} onClick={toggleDrawer} />
+      <IconButton onClick={toggleDrawer}>
+        <MenuIcon fontSize={"large"} />
       </IconButton>
       <Drawer anchor={"top"} open={isOpen} onClose={toggleDrawer}>
         <Box
