@@ -55,7 +55,7 @@ const PaginateArrow = styled(RightArrowSVG)`
     opacity: 1;
   }
   ${(props) => props.left && `transform: rotate(180deg)`};
-  ${(props) => (props.left ? `margin-left : -30px` : `margin-right: -30px`)};
+  ${(props) => (props.left ? `margin-left : -42px` : `margin-right: -42px`)};
 
   width: 45px;
 `;

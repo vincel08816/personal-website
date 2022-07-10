@@ -40,11 +40,17 @@ const Me = styled.h1`
   font-size: 75px;
   margin-bottom: 23px;
   font-weight: 900;
+  @media only screen and (max-width: 600px) {
+    font-size: 62px;
+  }
 `;
 
 const RandomLines = styled.h2`
   font-weight: 500;
   text-align: center;
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+  }
 `;
 
 const ButtonContainer = styled.div`
