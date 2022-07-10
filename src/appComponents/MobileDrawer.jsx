@@ -31,6 +31,7 @@ const MobileDrawer = () => {
           sx={{
             width: "auto",
             paddingTop: "72px",
+            paddingBottom: "18px",
             display: "flex",
             flexDirection: "column",
           }}

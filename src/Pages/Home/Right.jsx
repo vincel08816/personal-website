@@ -1,33 +1,64 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { ReactComponent as RightArrowSVG } from "../../assets/rightArrow.svg";
 import useApp from "../../contexts/appContext";
+import useWindowSize from "../../hooks/useWindowSize";
 import Apps from "./Apps";
 
-const AboutMe = () => {
-  const { openModal } = useApp();
+const MobilePaginator = ({ panels }) => {
+  const [pageIndex, setPageIndex] = useState(0);
+
+  const paginate = () => setPageIndex((prev) => (prev === 1 ? 0 : 1));
   return (
-    <AboutMeContainer>
-      <SubSection onClick={() => openModal("Experience")}>
-        <small>TECHNOLOGIES</small>
-        <h3>JavaScript Full-Stack </h3>
-        <p>View the tech stacks and experience offered.</p>
-        <CoverImage
-          src="https://res.cloudinary.com/practicaldev/image/fetch/s--xq8xxUmL--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://external-preview.redd.it/x7vVnP3L75Wh4ApmXedKjze9b7ZuH5h7oW-4xbHMiHQ.jpg%3Fauto%3Dwebp%26s%3Db7d6873eed8c442bb685a083b3b4bfff6dd009ac"
-          alt="mern"
-        />
-      </SubSection>
-      <div style={{ width: "20px" }} />
-      <SubSection onClick={() => openModal("Education")}>
-        <small>EDUCATION</small>
-        <h3>Personal Journey into Tech</h3>
-        <p>Take a look at my motivations and resources.</p>
-        <CoverImage
-          src="https://cdn.discordapp.com/attachments/594312779545051221/995061960007753808/unknown.png"
-          alt="mern"
-        />
-      </SubSection>
+    <AboutMeContainer isMobile>
+      <PaginateArrow left onClick={paginate} />
+      {panels[pageIndex]}
+      <PaginateArrow onClick={paginate} />
     </AboutMeContainer>
   );
 };
+
+const AboutMe = () => {
+  const { openModal } = useApp();
+  const { width } = useWindowSize();
+
+  const panels = [
+    <SubSection onClick={() => openModal("Experience")} left>
+      <small>TECHNOLOGIES</small>
+      <h3>JavaScript Full-Stack </h3>
+      <p>View the tech stacks and experience offered.</p>
+      <CoverImage
+        src="https://res.cloudinary.com/practicaldev/image/fetch/s--xq8xxUmL--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://external-preview.redd.it/x7vVnP3L75Wh4ApmXedKjze9b7ZuH5h7oW-4xbHMiHQ.jpg%3Fauto%3Dwebp%26s%3Db7d6873eed8c442bb685a083b3b4bfff6dd009ac"
+        alt="mern"
+      />
+    </SubSection>,
+    <SubSection onClick={() => openModal("Education")}>
+      <small>EDUCATION</small>
+      <h3>Personal Journey into Tech</h3>
+      <p>Take a look at my motivations and resources.</p>
+      <CoverImage
+        src="https://cdn.discordapp.com/attachments/594312779545051221/995061960007753808/unknown.png"
+        alt="mern"
+      />
+    </SubSection>,
+  ];
+  if (width < 600) return <MobilePaginator panels={panels} />;
+
+  return <AboutMeContainer>{panels}</AboutMeContainer>;
+};
+
+const PaginateArrow = styled(RightArrowSVG)`
+  margin-top: 30px;
+  opacity: 0.4;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+  ${(props) => props.left && `transform: rotate(180deg)`};
+  ${(props) => (props.left ? `margin-left : -30px` : `margin-right: -30px`)};
+
+  width: 45px;
+`;
 
 export default function Right() {
   return (
@@ -41,16 +72,12 @@ export default function Right() {
   );
 }
 
-const AboutMeContainer = styled.div`
-  display: flex;
-  margin-bottom: 35px;
-`;
-
 const SubSection = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  ${(props) => props.left && `margin-right: 20px;`}
 
   h3 {
     margin: 5px 0;
@@ -67,6 +94,23 @@ const SubSection = styled.div`
     font-weight: bold;
     font-size: 12px;
   }
+`;
+
+const AboutMeContainer = styled.div`
+  display: flex;
+  margin-bottom: 35px;
+  ${(props) =>
+    props.isMobile &&
+    `
+    ${SubSection} {
+      margin : 30px 0;
+    }
+    align-items: center;
+    justify-content: center;
+    margin-top : -30px;
+    margin-bottom: 20px;
+
+  `};
 `;
 
 const CoverImage = styled.img`
