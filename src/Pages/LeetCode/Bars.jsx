@@ -1,27 +1,6 @@
 import styled from "styled-components";
 
-export const Bars = [
-  {
-    level: "Easy",
-    completed: 26,
-    total: 578,
-    beats: 58.4,
-    color: "rgba(45,181,93)",
-  },
-  {
-    level: "Medium",
-    completed: 31,
-    total: 1245,
-    beats: 65.8,
-    color: "rgba(255,184,0)",
-  },
-  {
-    level: "Hard",
-    completed: 1,
-    total: 511,
-    color: "rgba(239,71,67)",
-  },
-].map(({ level, completed, total, beats, color }) => {
+const Bar = ({ level, completed, total, beats, color }) => {
   return (
     <BarContainer key={level}>
       <Stats>
@@ -45,7 +24,30 @@ export const Bars = [
       <Progress color={color} percent={(completed / total) * 100} />
     </BarContainer>
   );
-});
+};
+
+export const Bars = [
+  {
+    level: "Easy",
+    completed: 26,
+    total: 578,
+    beats: 58.4,
+    color: "rgba(45,181,93)",
+  },
+  {
+    level: "Medium",
+    completed: 31,
+    total: 1245,
+    beats: 65.8,
+    color: "rgba(255,184,0)",
+  },
+  {
+    level: "Hard",
+    completed: 1,
+    total: 511,
+    color: "rgba(239,71,67)",
+  },
+].map((barProps) => <Bar {...barProps} key={barProps} />);
 
 const Grey = styled.div`
   opacity: 0.4;
