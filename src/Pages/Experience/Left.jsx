@@ -67,6 +67,13 @@ const BackgroundImage = styled.img`
   height: 100%;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 `;
 
 const Container = styled.div`

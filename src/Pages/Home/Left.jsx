@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as InfoSVG } from "../../assets/info.svg";
 import { ReactComponent as MenuSVG } from "../../assets/menu.svg";
 import { ReactComponent as StudySVG } from "../../assets/study.svg";
+import useApp from "../../contexts/appContext";
 
 const Circles = () => (
   <Top>
@@ -12,20 +13,24 @@ const Circles = () => (
 );
 
 export default function Left() {
+  const { openModal } = useApp();
+
   return (
     <Container>
       <Circles />
       <SelectContainer>
-        {[
-          { Component: MenuIcon, text: "My Apps" },
-          { Component: StudyIcon, text: "LeetCode" },
-          { Component: InfoIcon, text: "About" },
-        ].map((a, i) => (
-          <Select key={i + "left"} selected={i === 0}>
-            <a.Component />
-            {a.text}
-          </Select>
-        ))}
+        <Select selected>
+          <MenuIcon />
+          My Apps
+        </Select>
+        <Select onClick={() => openModal("LeetCode")}>
+          <StudyIcon />
+          LeetCode
+        </Select>
+        <Select>
+          <InfoIcon />
+          About
+        </Select>
       </SelectContainer>
     </Container>
   );

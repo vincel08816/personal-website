@@ -27,13 +27,13 @@ const Container = styled.div`
       transform: translateX(0);
     }
   }
-
+  transition-timing-function: ease-in;
+  transition: 1s;
   position: absolute;
   display: flex;
   background: white;
   border-radius: 15px;
-  transition-timing-function: ease-in;
-  transition: 1s;
+
   /* margin: 25px 0 75px 0; */
   box-shadow: 1px 6px 12px hsl(0, 0%, 75%);
   width: 80vw;
