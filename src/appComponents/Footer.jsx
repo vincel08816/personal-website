@@ -9,7 +9,6 @@ export default function Footer() {
         onClick={() =>
           Swal.fire({
             title: "Terms and Conditions",
-            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius ornare maximus. Curabitur vitae orci ac purus lacinia condimentum. Praesent dapibus est lorem, ut tincidunt odio accumsan nec. Integer cursus risus non ullamcorper vehicula. Mauris iaculis vehicula est. Nulla iaculis est enim, pretium aliquam mi molestie a. Ut hendrerit porta viverra. Vestibulum convallis vitae massa a vehicula. Donec purus ligula, hendrerit mattis vulputate a, sodales at dolor. Mauris eu tempor turpis, a tristique lorem. Praesent vulputate justo lacus, in consequat urna sodales non. Ut dui leo, consequat nec porta at, varius a nibh. Duis ullamcorper lorem risus, vitae commodo est tempor vitae. Aliquam rutrum, justo at fermentum scelerisque, felis orci accumsan lacus, vel aliquet elit nibh eget nisl.`,
             icon: "info",
           })
         }
