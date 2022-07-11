@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ReactComponent as InfoSVG } from "../../assets/info.svg";
 import { ReactComponent as MenuSVG } from "../../assets/menu.svg";
 import { ReactComponent as StudySVG } from "../../assets/study.svg";
 import useApp from "../../contexts/appContext";
@@ -27,10 +26,6 @@ export default function Left() {
           <StudyIcon />
           LeetCode
         </Select>
-        <Select>
-          <InfoIcon />
-          About
-        </Select>
       </SelectContainer>
     </Container>
   );
@@ -45,12 +40,6 @@ const MenuIcon = styled(MenuSVG)`
 const StudyIcon = styled(StudySVG)`
   width: 17px;
   height: 17px;
-  margin-right: 12px;
-`;
-
-const InfoIcon = styled(InfoSVG)`
-  width: 18px;
-  height: 18px;
   margin-right: 12px;
 `;
 

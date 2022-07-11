@@ -11,9 +11,9 @@ export const BlockDuelers = () => (
       <b>Block Duelers</b>
     </P>
     <P>
-      <i>Block Duelers</i> is first decentralized finance project to create true
-      utility for NFTs by utilizing an ever-evolving dueling platform, with an
-      integrated wager system to bet on the outcome of live duels! The battle
+      <i>Block Duelers</i> is the first decentralized finance project to create
+      true utility for NFTs by utilizing an ever-evolving dueling platform, with
+      an integrated wager system to bet on the outcome of live duels! The battle
       platform attaches custom fighting stats to your favorite NFTs. As you
       fight and win duels, the stats of your duelers go up and game changing
       upgrades become available!
@@ -38,8 +38,8 @@ learned about React lifecycles and dealt with asyncronous code.
           lootbox prizepool
         </li>
         <li>
-          Implemented asynchronous smart contract reads utilizing JavaScript
-          promises, significantly reducing API response and site latency
+          Significantly reduced API response and site latency by implementing
+          asynchronous smart contract reads, utilizing JavaScript promises
         </li>
       </ul>
     </P>
@@ -174,12 +174,14 @@ export const StockSwap = () => (
   </>
 );
 
-export const Content = [
-  <BlockDuelers />,
-  <StockSwap />,
-  <Lootbox />,
-  <Fanfare />,
-];
+export const Content = () => (
+  <>
+    <BlockDuelers />
+    <StockSwap />
+    <Lootbox />
+    <Fanfare />
+  </>
+);
 
 const P = styled.div`
   font-size: 18px;

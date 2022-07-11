@@ -25,6 +25,7 @@ const RefButton = ({ text }) => {
 
 export default function AppBar() {
   const [headerColor, setHeaderColor] = useState();
+  const { openModal } = useApp();
 
   useEffect(() => {
     window.addEventListener("scroll", () =>
@@ -41,19 +42,22 @@ export default function AppBar() {
         </Logo>
         <LeftSide>
           {/* <Button style={{ marginLeft: "45px" }}>Home</Button> */}
-          {["Experience", "Education", "About Me"].map((text) => (
+          {["Experience", "Education"].map((text) => (
             <RefButton key={text} text={text} />
           ))}
         </LeftSide>
         <RightSide>
-          <FilledButton style={{ marginLeft: "45px" }}>
-            <a
+          <FilledButton
+            style={{ marginLeft: "45px" }}
+            onClick={() => openModal("Contact")}
+          >
+            {/* <a
               href="mailto:vincel08816@gmail.com"
               target="_blank"
               rel="noreferrer"
-            >
-              Contact Me
-            </a>
+            > */}
+            Contact Me
+            {/* </a> */}
           </FilledButton>
           <ThemeSlider />
           <MobileDrawer />

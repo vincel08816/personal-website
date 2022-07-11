@@ -6,7 +6,7 @@ export default function Right() {
   return (
     <Container>
       <P>
-        Hello! My name is Vincent and I have been developing at{" "}
+        <b>Hello! My name is Vincent</b> and I have been developing at{" "}
         <b>Simple Breakthrough</b> for 8 months. My main tech-stack includes{" "}
         <i>MongoDB</i>, <i>Express</i>, <i>Node</i>, <i>EtherJS</i>, and{" "}
         <i>React</i>, all of which is in <i>JavaScript(ES6+)</i> and hosted on{" "}
@@ -16,7 +16,7 @@ export default function Right() {
         them familiar with the codebase. The projects I worked on at Simple
         Breakthrough are listed below.
       </P>
-      {Content}
+      <Content />
     </Container>
   );
 }

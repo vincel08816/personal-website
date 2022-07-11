@@ -1,25 +1,9 @@
 import styled from "styled-components";
-import Swal from "sweetalert2";
 
 export default function Footer() {
   return (
     <StyledFooter>
-      <Section
-        style={{ marginLeft: "24px" }}
-        onClick={() =>
-          Swal.fire({
-            title: "Watch Spy x Family!!",
-            text: "Anyaaaa so cuteee.",
-            imageUrl:
-              "https://c.tenor.com/jiRSjXlEuF0AAAAd/waku-waku-excited.gif",
-            imageWidth: 300,
-            imageHeight: 300,
-            imageAlt: "Anyaaaa so cuteee",
-          })
-        }
-      >
-        Anya Waku Waku
-      </Section>
+      <Section style={{ marginLeft: "24px" }}>Terms and Conditions</Section>
       <Center>Copyright © 2022 Vincent Lee. All rights reserved.</Center>
       <Section style={{ paddingRight: "38px" }}>
         <a

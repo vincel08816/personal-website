@@ -23,8 +23,8 @@ const AboutMe = () => {
   const { width } = useWindowSize();
 
   const panels = [
-    <SubSection onClick={() => openModal("Experience")} left>
-      <small>TECHNOLOGIES</small>
+    <SubSection onClick={() => openModal("Experience")} key={"left"} left>
+      <small>EXPERIENCE</small>
       <h3>JavaScript Full-Stack </h3>
       <p>View the tech stacks and experience offered.</p>
       <CoverImage
@@ -32,7 +32,7 @@ const AboutMe = () => {
         alt="mern"
       />
     </SubSection>,
-    <SubSection onClick={() => openModal("Education")}>
+    <SubSection onClick={() => openModal("Education")} key={"right"}>
       <small>EDUCATION</small>
       <h3>Personal Journey into Tech</h3>
       <p>Take a look at my motivations and resources.</p>

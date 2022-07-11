@@ -12,7 +12,7 @@ export default function Left() {
           <Circle color={"#fdbc30"} />
           <Circle color={"#2ccb40"} />
         </CircleContainer>
-        <Description>TECHNOLOGIES</Description>
+        <Description>EXPERIENCE</Description>
         <Title>Vincent's Skills</Title>
         <Title>And Languages</Title>
       </Top>

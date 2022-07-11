@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import resume from "../../assets/resume.pdf";
 
 /*
 {!} Make Buttons Links
@@ -30,8 +31,11 @@ export const Hero = () => (
       more.
     </RandomLines>
     <ButtonContainer>
-      <DownloadButton>DOWNLOAD VINCENT'S RESUME</DownloadButton>
-      <DownloadButton disabled>DOWNLOAD VINCENT'S RESUME</DownloadButton>
+      <DownloadButton>
+        <a href={resume} target="_blank" rel="noreferrer">
+          DOWNLOAD VINCENT'S RESUME
+        </a>
+      </DownloadButton>
     </ButtonContainer>
   </>
 );
@@ -71,15 +75,41 @@ const StyledDownloadSVG = styled.svg`
 `;
 
 const StyledDownload = styled.button`
+  width: 380px;
   cursor: pointer;
   display: flex;
   align-items: center;
+  text-align: center;
   font-family: "Open Sans", Arial, sans-serif;
   margin-left: 30px;
   padding: 16px 56px;
   font-size: 14px;
   color: white;
   background-color: #b634e9;
+
+  /* makes text unhighlightable */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -khtml-user-select: none;
+
+  /* makes it undraggable */
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  &:hover {
+    background-color: #9128bb;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   // change this to onHover later
   border-radius: 9999px;
@@ -88,6 +118,10 @@ const StyledDownload = styled.button`
 
 const DisabledButton = styled(StyledDownload)`
   background-color: #e4e2e3;
-  color: rgba(156, 163, 175, 1);
-  cursor: not-allowed;
+  /* color: rgba(156, 163, 175, 1); */
+  color: black;
+  /* cursor: not-allowed; */
+  &:hover {
+    background-color: #e4e2e3;
+  }
 `;
