@@ -1,9 +1,21 @@
 import styled from "styled-components";
+import Swal from "sweetalert2";
 
 export default function Footer() {
   return (
     <StyledFooter>
-      <Section style={{ marginLeft: "24px" }}>Terms and Conditions</Section>
+      <Section
+        style={{ marginLeft: "24px" }}
+        onClick={() =>
+          Swal.fire({
+            title: "Terms and Conditions",
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius ornare maximus. Curabitur vitae orci ac purus lacinia condimentum. Praesent dapibus est lorem, ut tincidunt odio accumsan nec. Integer cursus risus non ullamcorper vehicula. Mauris iaculis vehicula est. Nulla iaculis est enim, pretium aliquam mi molestie a. Ut hendrerit porta viverra. Vestibulum convallis vitae massa a vehicula. Donec purus ligula, hendrerit mattis vulputate a, sodales at dolor. Mauris eu tempor turpis, a tristique lorem. Praesent vulputate justo lacus, in consequat urna sodales non. Ut dui leo, consequat nec porta at, varius a nibh. Duis ullamcorper lorem risus, vitae commodo est tempor vitae. Aliquam rutrum, justo at fermentum scelerisque, felis orci accumsan lacus, vel aliquet elit nibh eget nisl.`,
+            icon: "info",
+          })
+        }
+      >
+        Terms and Conditions
+      </Section>
       <Center>Copyright © 2022 Vincent Lee. All rights reserved.</Center>
       <Section style={{ paddingRight: "38px" }}>
         <a

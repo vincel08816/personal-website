@@ -3,7 +3,6 @@ import styled from "styled-components";
 import L from "../assets/L.png";
 import V from "../assets/V.png";
 import useApp from "../contexts/appContext";
-import ThemeSlider from "./components/Toggle";
 import MobileDrawer from "./MobileDrawer";
 
 const RefButton = ({ text }) => {
@@ -59,7 +58,6 @@ export default function AppBar() {
             Contact Me
             {/* </a> */}
           </FilledButton>
-          <ThemeSlider />
           <MobileDrawer />
         </RightSide>
       </Container>
