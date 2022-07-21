@@ -4,7 +4,6 @@ import Contact from "../Pages/Contact/Contact";
 import Education from "../Pages/Education/Education";
 import Experience from "../Pages/Experience/Experience";
 import LeetCode from "../Pages/LeetCode/LeetCode";
-
 import useModal from "./modalContext";
 
 export default function useApp() {
