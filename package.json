@@ -24,6 +24,7 @@
     "nth-check": "^2.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-google-login": "^5.2.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "socket.io": "^4.5.1",
@@ -39,7 +40,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
+    "dev": "concurrently \"yarn run server\" \"react-scripts start\"",
     "server": "nodemon --watch server server/server.js",
     "build": "CI= GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Display } from "./Display";
 import { Hero } from "./Hero";
+import React from "react";
 
 export default function Home() {
   return (
