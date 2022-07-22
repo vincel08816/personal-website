@@ -32,9 +32,7 @@ export function ChatProvider({ children }) {
     setMessages((prev) => [...prev, newMessage]);
   }, [pendingData]);
 
-  return (
-    <ChatContext.Provider value={{ messages, setMessages, guestId }}>
-      {children}
-    </ChatContext.Provider>
-  );
+  let value = { messages, setMessages, guestId, socket };
+
+  return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;
 }

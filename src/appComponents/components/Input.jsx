@@ -1,6 +1,7 @@
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import SendIcon from "@mui/icons-material/Send";
 import { Divider, IconButton, TextField } from "@mui/material";
+import axios from "axios";
 import Picker from "emoji-picker-react";
 import React, { useState } from "react";
 import styled from "styled-components";
@@ -13,14 +14,25 @@ const sx = {
   justifySelf: "center",
 };
 
+// {!} Add error message for unsent messages and perhaps UI for unsent messages
+// {!} Add socket emit laterrr
+
 const Input = () => {
   const [isEmojiOpen, setEmojiOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const { setMessages } = useChat();
+  const { guestId, setMessages, socket } = useChat();
 
-  const onEmojiClick = (event, emojiObject) => {
-    setMessages((prev) => [...prev, { emoji: emojiObject.emoji }]);
-    setEmojiOpen(false);
+  const onEmojiClick = (e, { emoji }) => {
+    if (!guestId || !socket.current) return;
+    const payload = { isGuest: true, guestId, emoji, text: "emoji" };
+    axios
+      .post("/message", payload)
+      .then(() => {
+        // socket.emit("message", payload);
+        setMessages((prev) => [...prev, { emoji }]);
+        setEmojiOpen(false);
+      })
+      .catch((err) => "failed sending emoji");
   };
 
   const handleOnChange = (e) => {
@@ -28,8 +40,15 @@ const Input = () => {
   };
 
   const sendMessage = () => {
-    setMessages((prev) => [...prev, { text: message }]);
-    setMessage("");
+    if (!guestId || !socket.current) return;
+    axios
+      .post("/message", { isGuest: true, guestId, text: message })
+      .then(() => {
+        // socket.emit("message", { isGuest: true, guestId, text: message });
+        setMessages((prev) => [...prev, { text: message }]);
+        setMessage("");
+      })
+      .catch(() => "failed sending message");
   };
 
   return (
@@ -42,8 +61,6 @@ const Input = () => {
         <TextField
           sx={{ flex: 1, padding: "12px", width: "100%" }}
           placeholder="Write a reply"
-          // maxRows={3}
-          // multiline
           variant="standard"
           InputProps={{ disableUnderline: true }}
           value={message}

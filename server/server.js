@@ -19,13 +19,13 @@ io.on("connection", (socket) => {
     io.emit("getUsers", users);
   });
 
-  socket.on("sendMessage", ({ senderId, receiverId, conversationId, text }) => {
+  socket.on("sendMessage", ({ senderId, text }) => {
     console.log("💌 sendMessage:", text);
 
-    const user = users.get(receiverId);
-    let payload = { senderId, text, conversationId };
-    // {!} do not send message back if sending to self.
-    if (user) io.to(user.socketId).emit("getMessage", payload);
+    // {!} send message to myself somehow
+    // const user = users.get(receiverId);
+    // let payload = { senderId, text, conversationId };
+    // if (user) io.to(user.socketId).emit("getMessage", payload);
   });
 
   socket.on("disconnect", () => {
