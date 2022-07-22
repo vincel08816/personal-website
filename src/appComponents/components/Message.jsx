@@ -1,10 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-const Message = ({ text, isUser }) => {
+const Message = ({ text, isVince, emoji }) => {
+  if (emoji)
+    return (
+      <Container isVince={isVince}>
+        <Bubble isVince={isVince} style={{ fontSize: "82px" }}>
+          {emoji}
+        </Bubble>
+      </Container>
+    );
+
   return (
-    <Container isUser={isUser}>
-      <Bubble isUser={isUser}>{text}</Bubble>
+    <Container isVince={isVince}>
+      <Bubble isVince={isVince}>{text}</Bubble>
     </Container>
   );
 };
@@ -12,14 +21,17 @@ const Message = ({ text, isUser }) => {
 export default Message;
 
 const Bubble = styled.div`
-  padding: 20px;
-  margin: 10px 20px;
+  padding: 18px 22px;
   border-radius: 8px;
-  background-color: ${({ isUser }) => (isUser ? "#f5f5f5" : "#bc45e5")};
-  color: ${({ isUser }) => (isUser ? "black" : "white")};
+  background-color: ${({ isVince }) => (isVince ? "#f5f5f5" : "#bc45e5")};
+  color: ${({ isVince }) => (isVince ? "black" : "white")};
+  max-width: 60%;
+  word-break: break-word;
+  white-space: pre-wrap;
 `;
 
 const Container = styled.div`
   display: flex;
-  flex-direction: ${({ isUser }) => (isUser ? "row" : "row-reverse")};
+  flex-direction: ${({ isVince }) => (isVince ? "row" : "row-reverse")};
+  margin-bottom: 12px;
 `;

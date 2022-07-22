@@ -1,20 +1,53 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { useChat } from "./ChatContext";
 import Input from "./Input";
 import Message from "./Message";
 
 function Messages() {
+  const { messages } = useChat();
+  const messageRef = useRef();
+
+  useEffect(() => {
+    messageRef.current.scrollIntoView({
+      screenTop: "100px",
+      behavior: "smooth",
+    });
+  }, [messages]);
+
   return (
-    <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
-      <Message isUser text="message" />
-      <Message text="message" />
-    </div>
+    <MessagesContainer>
+      <Message
+        isVince
+        text={
+          "Hey there 👋" +
+          "\n" +
+          "\n" +
+          "Welcome to My Website! 🙌" +
+          "\n" +
+          "\n" +
+          "Take a look around! If you have any questions, just reply to this message." +
+          "\n" +
+          "\n" +
+          "Vincent."
+        }
+      />
+      {messages.map(({ text, isVince, emoji }, i) => (
+        <Message
+          text={text}
+          isVince={isVince}
+          key={i + "message"}
+          emoji={emoji}
+        />
+      ))}
+      <div ref={messageRef} />
+    </MessagesContainer>
   );
 }
 
-export default function OpenChat({ bottom }) {
+export default function OpenChat({ isOpen }) {
   return (
-    <Container bottom={bottom}>
+    <Container isOpen={isOpen}>
       <InnerContainer>
         <ChatTop>
           <DisplayInfo>
@@ -33,6 +66,14 @@ export default function OpenChat({ bottom }) {
     </Container>
   );
 }
+
+const MessagesContainer = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+  overflow-x: auto;
+`;
 
 const InnerContainer = styled.div`
   display: flex;
@@ -100,4 +141,5 @@ const Container = styled.div`
   max-height: 600px;
   box-shadow: 1px 2px 4px hsl(0, 0%, 75%);
   z-index: 1204;
+  ${(props) => !props.isOpen && `display: none`};
 `;

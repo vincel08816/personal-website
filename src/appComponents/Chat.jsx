@@ -12,7 +12,7 @@ export default function Chat({ footerRef }) {
 
   return (
     <ChatProvider>
-      {isOpen && <OpenChat />}
+      <OpenChat isOpen={isOpen} />
       <ChatButton onClick={handleClick} isOpen={isOpen} />
     </ChatProvider>
   );
@@ -37,7 +37,7 @@ function ChatButton({ onClick, isOpen }) {
         bottom: `18px`,
         right: "20px",
         borderRadius: "50%",
-        backgroundColor: "#5865f2",
+        backgroundColor: "#bc45e5",
         color: "white",
       }}
     >

@@ -44,7 +44,6 @@ export default function Footer() {
 
 const Center = styled.div`
   display: flex;
-  flex: 1;
   justify-content: center;
   align-items: center;
 `;
@@ -56,10 +55,8 @@ const Section = styled.div`
     width: 40px;
     height: 40px;
     margin: 0 7px;
-    /* @media only screen and (max-width: 900px) { */
     width: 30px;
     height: 30px;
-    /* } */
   }
 `;
 
@@ -69,13 +66,9 @@ const StyledFooter = styled.footer`
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: center;
-  height: 100px;
   background-color: white;
   margin-left: 12px;
-  /* @media only screen and (max-width: 900px) { */
   flex-direction: column;
-  height: 150px;
-  justify-content: space-evenly;
-  /* } */
+  height: 170px;
+  justify-content: space-around;
 `;

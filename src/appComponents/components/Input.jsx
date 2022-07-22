@@ -4,6 +4,7 @@ import { Divider, IconButton, TextField } from "@mui/material";
 import Picker from "emoji-picker-react";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useChat } from "./ChatContext";
 
 const sx = {
   width: "45px",
@@ -13,11 +14,22 @@ const sx = {
 };
 
 const Input = () => {
-  const [chosenEmoji, setChosenEmoji] = useState(null);
   const [isEmojiOpen, setEmojiOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const { setMessages } = useChat();
 
   const onEmojiClick = (event, emojiObject) => {
-    setChosenEmoji(emojiObject);
+    setMessages((prev) => [...prev, { emoji: emojiObject.emoji }]);
+    setEmojiOpen(false);
+  };
+
+  const handleOnChange = (e) => {
+    setMessage(e.target.value);
+  };
+
+  const sendMessage = () => {
+    setMessages((prev) => [...prev, { text: message }]);
+    setMessage("");
   };
 
   return (
@@ -25,23 +37,26 @@ const Input = () => {
       <PickerContainer isOpen={isEmojiOpen}>
         <Picker onEmojiClick={onEmojiClick} />
       </PickerContainer>
-      <Divider sx={{ marginTop: "12px" }} />
+      <Divider />
       <TextFieldContainer>
         <TextField
-          id="standard-textarea"
-          sx={{ flex: 1, padding: "12px" }}
-          // label="Multiline Placeholder"
+          sx={{ flex: 1, padding: "12px", width: "100%" }}
           placeholder="Write a reply"
-          multiline
+          // maxRows={3}
+          // multiline
           variant="standard"
           InputProps={{ disableUnderline: true }}
+          value={message}
+          onChange={handleOnChange}
         />
         <IconButton sx={sx} onClick={() => setEmojiOpen(!isEmojiOpen)}>
           <InsertEmoticonIcon />
         </IconButton>
-        <IconButton sx={sx}>
-          <SendIcon />
-        </IconButton>
+        {message?.length ? (
+          <IconButton sx={sx} onClick={sendMessage}>
+            <SendIcon />
+          </IconButton>
+        ) : null}
       </TextFieldContainer>
     </>
   );
