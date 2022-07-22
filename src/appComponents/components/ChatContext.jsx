@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 
@@ -13,14 +14,21 @@ export function ChatProvider({ children }) {
   const [messages, setMessages] = useState([]);
   const [pendingData, setPendingData] = useState();
 
-  const guestId = uuidv4();
-
+  const guestId = window.localStorage.getItem("guestId") || uuidv4();
+  window.localStorage.setItem("guestId", guestId);
   const socket = useRef();
 
   useEffect(() => {
     socket.current = io(`ws://${window.location.hostname}:3000`);
     socket.current.on("getMessage", (data) => setPendingData(data));
   }, [setPendingData]);
+
+  useEffect(() => {
+    axios.get(`/message/guest/${guestId}`).then((res) => {
+      console.log(res.data);
+      setMessages([...res.data]);
+    });
+  }, [guestId]);
 
   useEffect(() => {
     socket.current.emit("addUser", guestId);

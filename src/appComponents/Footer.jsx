@@ -17,30 +17,26 @@ export default function Footer() {
       </Section>
       <Center>Copyright © 2022 Vincent Lee. All rights reserved.</Center>
       <Section style={{ paddingRight: "38px" }}>
-        <a
+        <FooterIcon
           href="https://github.com/vincel08816/personal-website"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-            alt="github-footer"
-          />
-        </a>
-        <a
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+          alt="github-footer"
+        />
+        <FooterIcon
           href="https://www.linkedin.com/in/vincentlee28"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-            alt="linkedin-footer"
-          />
-        </a>
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+          alt="linkedin-footer"
+        />
       </Section>
     </StyledFooter>
   );
 }
+
+const FooterIcon = ({ href, src, alt }) => (
+  <a href={href} target="_blank" rel="noreferrer">
+    <img src={src} alt={alt} />
+  </a>
+);
 
 const Center = styled.div`
   display: flex;

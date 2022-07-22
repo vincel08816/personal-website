@@ -12,6 +12,7 @@ io.on("connection", (socket) => {
   console.log("a user has connected.");
 
   socket.on("addUser", (userId) => {
+    // if (users.has(userId)) return;
     console.log("addUser");
     users.set(userId, socket.id);
     users.set(socket.id, userId);
@@ -30,8 +31,7 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     console.log("a user disconnected!");
-    const temp = users.get(socket);
-    users.delete(temp);
+    users.delete(users.get(socket));
     users.delete(socket);
 
     io.emit("getUsers", users);

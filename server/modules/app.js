@@ -1,6 +1,8 @@
 require("dotenv").config();
 
 const express = require("express");
+const passport = require("passport");
+const cp = require("cookie-parser");
 
 const app = express();
 const path = require("path");
@@ -19,6 +21,8 @@ if (process.env.PRODUCTION === "1") {
 }
 
 [
+  passport.initialize(),
+  cp(),
   express.json({ limit: "50mb" }),
   express.urlencoded({ extended: true, limit: "50mb" }),
   (req, res, next) => {
@@ -35,6 +39,8 @@ if (process.env.PRODUCTION === "1") {
 ].forEach((item) => app.use(item));
 
 app.use("/message", require("../routes/message"));
+app.use("/auth", require("../routes/auth"));
 
+require("./passport-config")(passport);
 
 module.exports = app;

@@ -24,7 +24,7 @@ const Input = () => {
 
   const onEmojiClick = (e, { emoji }) => {
     if (!guestId || !socket.current) return;
-    const payload = { isGuest: true, guestId, emoji, text: "emoji" };
+    const payload = { isGuest: true, guestId, emoji };
     axios
       .post("/message", payload)
       .then(() => {
