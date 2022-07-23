@@ -20,6 +20,13 @@ router.get(
   }
 );
 
+/* {!} this might need some work in terms of security... 
+maybe store local storage instead, but it works */
+
+// @route    GET /guest/:id
+// @desc     Get messages by guest id
+// @access   Public
+
 router.get("/guest/:id", async (req, res) => {
   try {
     const messages = await Message.find({ guestId: req.params.id });
@@ -29,6 +36,11 @@ router.get("/guest/:id", async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+// @route    GET /all
+// @desc     Get all messages
+// @access   Private
+
 
 router.post(
   "/me",
@@ -44,8 +56,6 @@ router.post(
     }
   }
 );
-
-// {!} 6/10 - Test this route
 
 // @route    POST /
 // @desc     Send Messages between user or group

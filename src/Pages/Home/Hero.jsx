@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import resume from "../../assets/resume.pdf";
 
-/*
-{!} Make Buttons Links
-{!} Add onHover Effects
-{!} Add styling for disabled button
-*/
-
 const DownloadButton = ({ children, disabled }) => {
   const ButtonType = disabled ? DisabledButton : StyledDownload;
   return (

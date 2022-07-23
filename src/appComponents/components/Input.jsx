@@ -15,7 +15,6 @@ const sx = {
 };
 
 // {!} Add error message for unsent messages and perhaps UI for unsent messages
-// {!} Add socket emit laterrr
 
 export default function Input() {
   const [isEmojiOpen, setEmojiOpen] = useState(false);

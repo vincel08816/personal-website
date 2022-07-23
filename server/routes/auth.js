@@ -72,6 +72,7 @@ router.post(
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ error: errors });
 
+    if (process.env.PRODUCTION) return res.sendStatus(403);
     try {
       const { username, email, password } = req.body;
       const lowercaseEmail = req.body.email.toLowerCase().replace(" ", "");

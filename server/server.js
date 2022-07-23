@@ -25,7 +25,6 @@ io.on("connection", (socket) => {
       isGuest ? "62db74d0f53ffd33e36fb85a" : guestId
     );
 
-    /* {!} Add more data to data send */
     if (!userSocket) return console.log("socket not found", users);
     console.log("💌 sendMessage:", text);
     io.to(userSocket).emit("getMessage", {
