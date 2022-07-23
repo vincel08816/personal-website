@@ -17,7 +17,7 @@ const sx = {
 // {!} Add error message for unsent messages and perhaps UI for unsent messages
 // {!} Add socket emit laterrr
 
-const Input = () => {
+export default function Input() {
   const [isEmojiOpen, setEmojiOpen] = useState(false);
   const [message, setMessage] = useState("");
   const { guestId, setMessages, socket } = useChat();
@@ -28,7 +28,7 @@ const Input = () => {
     axios
       .post("/message", payload)
       .then(() => {
-        socket.emit("message", payload);
+        socket.current.emit("sendMessage", payload);
         setMessages((prev) => [...prev, payload]);
         setEmojiOpen(false);
       })
@@ -44,7 +44,11 @@ const Input = () => {
     axios
       .post("/message", { isGuest: true, guestId, text: message })
       .then(() => {
-        socket.emit("message", { isGuest: true, guestId, text: message });
+        socket.current.emit("sendMessage", {
+          isGuest: true,
+          guestId,
+          text: message,
+        });
         setMessages((prev) => [...prev, { isGuest: true, text: message }]);
         setMessage("");
       })
@@ -77,9 +81,7 @@ const Input = () => {
       </TextFieldContainer>
     </>
   );
-};
-
-export default Input;
+}
 
 const TextFieldContainer = styled.div`
   display: flex;

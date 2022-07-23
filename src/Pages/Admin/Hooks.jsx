@@ -61,8 +61,10 @@ export function useSocket(userData, chatMap, selectedId, setMessages) {
   }, [userData, chatMap]);
 
   useEffect(() => {
-    if (userData && socket) socket.current.emit("addUser", userData._id);
-  }, [socket, userData]);
+    if (!userData || !socket) return;
+    console.log("userData", userData._id);
+    socket.current.emit("addUser", userData._id);
+  }, [userData]);
 
   const updateSelected = useCallback(() => {
     if (selectedId === pendingData?.guestId)
@@ -74,6 +76,7 @@ export function useSocket(userData, chatMap, selectedId, setMessages) {
     let previousArr = chatMap.get(pendingData.guestId) || [];
     chatMap.add(pendingData.guestId, [...previousArr, pendingData]);
     updateSelected(pendingData);
+    setPendingData();
   }, [pendingData, chatMap, updateSelected]);
 
   return { id: userData?._id, socket };

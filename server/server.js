@@ -21,18 +21,16 @@ io.on("connection", (socket) => {
   });
 
   socket.on("sendMessage", ({ guestId, text, isGuest }) => {
-    const userId = users.get(guestId);
+    const userSocket = users.get(
+      isGuest ? "62db74d0f53ffd33e36fb85a" : guestId
+    );
 
+    if (!userSocket) return console.log("socket not found", users);
     console.log("💌 sendMessage:", text);
-    io.to(userId).emit("getMessage", {
+    io.to(userSocket).emit("getMessage", {
       guestId,
       text,
     });
-
-    // {!} send message to myself somehow
-    // const user = users.get(receiverId);
-    // let payload = { senderId, text, conversationId };
-    // if (user) io.to(user.socketId).emit("getMessage", payload);
   });
 
   socket.on("disconnect", () => {
