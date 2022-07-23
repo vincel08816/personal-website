@@ -1,10 +1,16 @@
 import styled from "styled-components";
 import { useAdmin } from "../Admin";
 
-const Row = ({ text, guestId = "123", emoji }) => {
-  const { setSelectedId } = useAdmin();
+const Row = ({ text, guestId, emoji }) => {
+  const { selectedId, setSelectedId, chatMap, setMessages } = useAdmin();
+
+  const handleClick = () => {
+    setSelectedId(guestId);
+    setMessages(chatMap?.get(guestId));
+  };
+
   return (
-    <RoomContainer onClick={() => setSelectedId(guestId)}>
+    <RoomContainer onClick={handleClick} isSelected={guestId === selectedId}>
       <CoverImage src="https://cdn.discordapp.com/emojis/998653442425896970.webp?size=96&quality=lossless" />
       <TextSide>
         <Name>{guestId}</Name>
@@ -84,8 +90,9 @@ const CoverImage = styled.img`
 
 const RoomContainer = styled.div`
   display: flex;
+  cursor: pointer;
   padding: 10px 5px 0 5px;
-  /* background-color: #2875ff; */
+  ${(props) => props.isSelected && `background-color: #2873ff4f;`}
 `;
 
 const Container = styled.div`

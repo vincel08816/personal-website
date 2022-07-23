@@ -23,9 +23,6 @@ export default function Admin() {
   const chatMap = useMap();
   const socketData = useSocket(userData, chatMap, selectedId, setMessages);
 
-  useEffect(() => {
-    console.log(chatMap);
-  }, [chatMap]);
   const checkCookie = async () => {
     try {
       const result = await axios.get("/auth");
@@ -50,7 +47,14 @@ export default function Admin() {
 
   return (
     <AdminContext.Provider
-      value={{ ...socketData, messages, setSelectedId, chatMap }}
+      value={{
+        ...socketData,
+        messages,
+        setMessages,
+        selectedId,
+        setSelectedId,
+        chatMap,
+      }}
     >
       <Chat />
     </AdminContext.Provider>

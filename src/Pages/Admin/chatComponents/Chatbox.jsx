@@ -1,17 +1,47 @@
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import MoodOutlinedIcon from "@mui/icons-material/MoodOutlined";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
+import Swal from "sweetalert2";
+import { useAdmin } from "../Admin";
 
 export default function Chatbox() {
   const [newMessage, setNewMessage] = useState("");
+  const { selectedId, setMessages, socket } = useAdmin();
 
-  const handleSubmit = async (e) => {};
+  const sendMessage = async (e) => {
+    e.preventDefault();
+    if (!selectedId) return;
+    const payload = {
+      key: Date.now(),
+      isGuest: false,
+      text: newMessage,
+      guestId: selectedId,
+      updatedAt: new Date(Date.now()),
+    };
+    axios
+      .post("/message/me", payload)
+      .then(() => {
+        socket.current.emit("sendMessage", {
+          ...payload,
+          socketId: socket._id,
+        });
+        setMessages((prev) => [...prev, payload]);
+        setNewMessage("");
+      })
+      .catch((err) =>
+        Swal.fire({
+          icon: "error",
+          title: "Unable to send message",
+          text: err.error,
+        })
+      );
+  };
 
   const handleChange = (e) => {
     setNewMessage(e.target.value);
-    // {!} Add to local storage draft.
   };
 
   return (
@@ -19,7 +49,7 @@ export default function Chatbox() {
       <Button>
         <AttachFileIcon style={{ fontSize: "28px", color: "darkgray" }} />
       </Button>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={sendMessage}>
         <Input
           placeholder="Write a message..."
           type="text"
@@ -30,7 +60,7 @@ export default function Chatbox() {
       <Button>
         <MoodOutlinedIcon style={{ fontSize: "28px", color: "darkgray" }} />
       </Button>
-      <Button onClick={handleSubmit} style={{ marginRight: "15px" }}>
+      <Button onClick={sendMessage} style={{ marginRight: "15px" }}>
         <SendRoundedIcon style={{ fontSize: "28px", color: "#2875ff" }} />
       </Button>
     </Container>
@@ -45,6 +75,7 @@ const Button = styled.div`
   margin: 5px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 const Container = styled.div`

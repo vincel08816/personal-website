@@ -11,8 +11,6 @@ export default function Sidebar() {
   const [isSearching, setIsSearching] = useState(0);
   const { chatMap } = useAdmin();
 
-  // const [query, setQuery] = useState("");
-
   useEffect(() => {
     setIsSearching(0);
   }, []);

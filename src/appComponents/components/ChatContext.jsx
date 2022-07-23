@@ -25,7 +25,6 @@ export function ChatProvider({ children }) {
 
   useEffect(() => {
     axios.get(`/message/guest/${guestId}`).then((res) => {
-      console.log(res.data);
       setMessages([...res.data]);
     });
   }, [guestId]);

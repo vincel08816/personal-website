@@ -1,19 +1,24 @@
 const router = require("express").Router();
 const Message = require("../models/Message");
+const passport = require("passport");
 
 // @route    GET /all
 // @desc     Get all messages
 // @access   Private
 
-router.get("/all", async (req, res) => {
-  try {
-    const messages = await Message.find();
-    res.json(messages);
-  } catch (error) {
-    console.error(error);
-    res.sendStatus(500);
+router.get(
+  "/all",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const messages = await Message.find();
+      res.json(messages);
+    } catch (error) {
+      console.error(error);
+      res.sendStatus(500);
+    }
   }
-});
+);
 
 router.get("/guest/:id", async (req, res) => {
   try {
@@ -24,6 +29,21 @@ router.get("/guest/:id", async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+router.post(
+  "/me",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const { guestId, text, emoji } = req.body;
+      await new Message({ guestId, text, emoji, isGuest: false }).save();
+      res.sendStatus(200);
+    } catch (error) {
+      console.error(error);
+      res.sendStatus(500);
+    }
+  }
+);
 
 // {!} 6/10 - Test this route
 

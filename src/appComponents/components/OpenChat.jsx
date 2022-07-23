@@ -32,10 +32,10 @@ function Messages() {
           "Vincent."
         }
       />
-      {messages.map(({ text, isVince, emoji }, i) => (
+      {messages.map(({ text, isGuest, emoji }, i) => (
         <Message
           text={text}
-          isVince={isVince}
+          isVince={!isGuest}
           key={i + "message"}
           emoji={emoji}
         />

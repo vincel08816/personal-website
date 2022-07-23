@@ -28,8 +28,8 @@ const Input = () => {
     axios
       .post("/message", payload)
       .then(() => {
-        // socket.emit("message", payload);
-        setMessages((prev) => [...prev, { emoji }]);
+        socket.emit("message", payload);
+        setMessages((prev) => [...prev, payload]);
         setEmojiOpen(false);
       })
       .catch((err) => "failed sending emoji");
@@ -44,8 +44,8 @@ const Input = () => {
     axios
       .post("/message", { isGuest: true, guestId, text: message })
       .then(() => {
-        // socket.emit("message", { isGuest: true, guestId, text: message });
-        setMessages((prev) => [...prev, { text: message }]);
+        socket.emit("message", { isGuest: true, guestId, text: message });
+        setMessages((prev) => [...prev, { isGuest: true, text: message }]);
         setMessage("");
       })
       .catch(() => "failed sending message");

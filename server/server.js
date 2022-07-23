@@ -20,8 +20,14 @@ io.on("connection", (socket) => {
     io.emit("getUsers", users);
   });
 
-  socket.on("sendMessage", ({ senderId, text }) => {
+  socket.on("sendMessage", ({ guestId, text, isGuest }) => {
+    const userId = users.get(guestId);
+
     console.log("💌 sendMessage:", text);
+    io.to(userId).emit("getMessage", {
+      guestId,
+      text,
+    });
 
     // {!} send message to myself somehow
     // const user = users.get(receiverId);
@@ -42,3 +48,15 @@ connectDB();
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`listening on port: ${PORT}`));
+
+// socket.on("sendMessage", ({ senderId, receiverId, conversationId, text }) => {
+//   const user = getUser(receiverId);
+//   console.log("💌 sendMessage:", text);
+//   if (user) {
+//     io.to(user.socketId).emit("getMessage", {
+//       senderId,
+//       text,
+//       conversationId,
+//     });
+//   }
+// });
