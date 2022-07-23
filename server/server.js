@@ -20,16 +20,20 @@ io.on("connection", (socket) => {
     io.emit("getUsers", users);
   });
 
-  socket.on("sendMessage", ({ guestId, text, isGuest }) => {
+  socket.on("sendMessage", ({ guestId, text, isGuest, emoji }) => {
     const userSocket = users.get(
       isGuest ? "62db74d0f53ffd33e36fb85a" : guestId
     );
 
+    /* {!} Add more data to data send */
     if (!userSocket) return console.log("socket not found", users);
     console.log("💌 sendMessage:", text);
     io.to(userSocket).emit("getMessage", {
+      isGuest,
       guestId,
       text,
+      updatedAt: new Date(),
+      emoji,
     });
   });
 
