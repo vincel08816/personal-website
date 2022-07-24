@@ -43,25 +43,33 @@ export function useSocket(userData, chatMap, selectedId, setMessages) {
   useEffect(() => {
     if (!userData?._id) return;
     socket.current = io(`ws://${window.location.hostname}:3000`);
-    socket.current.on("getMessage", (data) => setPendingData(data));
+    socket.current.on("getMessage", (data) => {
+      console.log(data);
+      setPendingData(data);
+    });
   }, [setPendingData, userData]);
 
-  useEffect(() => {
-    if (!userData?._id || chatMap.state.size) return;
+  const getMessages = useCallback(() => {
+    if (chatMap.state.size) return;
+
     axios.get(`/message/all`).then((res) => {
       let allMessages = res.data;
       let tempChatMap = new Map();
-
+      console.log("fetched");
       allMessages.forEach((message) => {
         const messages = tempChatMap.get(message.guestId) || [];
         tempChatMap.set(message.guestId, [...messages, message]);
       });
       if (chatMap.state !== tempChatMap) chatMap.setMap(tempChatMap);
     });
-  }, [userData, chatMap]);
+  }, [chatMap]);
 
   useEffect(() => {
-    if (!userData || !socket) return;
+    if (userData) getMessages();
+  }, [userData, getMessages]);
+
+  useEffect(() => {
+    if (!userData || !socket?.current) return;
     console.log("userData", userData._id);
     socket.current.emit("addUser", userData._id);
   }, [userData]);
@@ -79,5 +87,5 @@ export function useSocket(userData, chatMap, selectedId, setMessages) {
     setPendingData();
   }, [pendingData, chatMap, updateSelected]);
 
-  return { id: userData?._id, socket };
+  return { id: userData?._id, socket, getMessages };
 }

@@ -26,7 +26,7 @@ io.on("connection", (socket) => {
     );
 
     if (!userSocket) return console.log("socket not found", users);
-    console.log("💌 sendMessage:", text);
+    console.log("💌 sendMessage:", text || emoji);
     io.to(userSocket).emit("getMessage", {
       isGuest,
       guestId,

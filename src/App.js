@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BaseView from "./appComponents/BaseView";
 import { AppProvider } from "./contexts/appContext";
 import { ModalProvider } from "./contexts/modalContext";
@@ -13,11 +13,11 @@ const Wrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <ModalProvider>
       <AppProvider>
-        <BrowserRouter>
+        <Router>
           <BaseView>
             <Routes>{children}</Routes>
           </BaseView>
-        </BrowserRouter>
+        </Router>
       </AppProvider>
     </ModalProvider>
   </ThemeProvider>

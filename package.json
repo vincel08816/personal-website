@@ -45,7 +45,7 @@
     "nodemon": "^2.0.16"
   },
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
     "server": "nodemon --watch server server/server.js",
     "start": "node server/server.js",
     "client": "react-scripts start",
