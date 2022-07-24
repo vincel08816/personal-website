@@ -1,6 +1,7 @@
 {
   "name": "personal-project",
   "version": "0.1.0",
+  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
     "@emotion/core": "10.1.1",
@@ -44,11 +45,13 @@
     "nodemon": "^2.0.16"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "concurrently \"yarn run server\" \"react-scripts start\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon --watch server server/server.js",
+    "start": "node server/server.js",
+    "client": "react-scripts start",
     "build": "CI= GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --detectOpenHandles",
+    "test-client": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
