@@ -49,15 +49,3 @@ connectDB();
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`listening on port: ${PORT}`));
-
-// socket.on("sendMessage", ({ senderId, receiverId, conversationId, text }) => {
-//   const user = getUser(receiverId);
-//   console.log("💌 sendMessage:", text);
-//   if (user) {
-//     io.to(user.socketId).emit("getMessage", {
-//       senderId,
-//       text,
-//       conversationId,
-//     });
-//   }
-// });
