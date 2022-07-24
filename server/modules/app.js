@@ -15,12 +15,12 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 
-// if (process.env.PRODUCTION === '1') {
-//   app.all('*', (req, res, next) => {
-//     if (req.headers['x-forwarded-proto'] === 'https') return next();
-//     res.redirect('https://' + req.hostname + req.url);
-//   })
-// }
+if (process.env.PRODUCTION === '1') {
+  app.all('*', (req, res, next) => {
+    if (req.headers['x-forwarded-proto'] === 'https') return next();
+    res.redirect('https://' + req.hostname + req.url);
+  })
+}
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -38,13 +38,13 @@ app.use(express.static('build'));
 app.use("/message", require("../routes/message"));
 app.use("/auth", require("../routes/auth"));
 
-// if (process.env.PRODUCTION === "1") {
-//   app.get("/*", (req, res) => {
-//     res.sendFile(
-//       path.join(__dirname, "../build", "index.html"),
-//       (err) => err && console.error(err)
-//     );
-//   });
-// }
+if (process.env.PRODUCTION === "1") {
+  app.get("/*", (req, res) => {
+    res.sendFile(
+      path.join(__dirname, "../build", "index.html"),
+      (err) => err && console.error(err)
+    );
+  });
+}
 
 module.exports = app;
