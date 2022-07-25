@@ -62,9 +62,9 @@ const StyledFooter = styled.footer`
   display: flex;
   width: 100%;
   align-items: center;
-  background-color: white;
-  margin-left: 12px;
+  background-color: rgba(255, 255, 255, 0.6);
   flex-direction: column;
-  height: 170px;
+  height: 180px;
   justify-content: space-around;
+  z-index: 2;
 `;

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ChatProvider } from "./components/ChatContext";
 import OpenChat from "./components/OpenChat";
 
-export default function Chat({ footerRef }) {
+export default function Chat() {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => setIsOpen(!isOpen);
