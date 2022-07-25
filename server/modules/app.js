@@ -38,7 +38,7 @@ app.use("/message", require("../routes/message"));
 app.use("/auth", require("../routes/auth"));
 
 if (process.env.PRODUCTION === "1") {
-  app.get("*", (req, res) => {
+  app.get("/*", (req, res) => {
     res.sendFile(
       path.join(__dirname, "../build", "index.html"),
       (err) => err && console.error(err)

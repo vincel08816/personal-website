@@ -49,7 +49,7 @@
     "server": "nodemon --watch server server/server.js",
     "start": "node server/server.js",
     "client": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= GENERATE_SOURCEMAP=false react-scripts build",
     "test": "jest --detectOpenHandles",
     "test-client": "react-scripts test",
     "eject": "react-scripts eject"
