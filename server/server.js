@@ -1,0 +1,51 @@
+require("dotenv").config();
+const connectDB = require("./modules/db");
+
+const app = require("./modules/app");
+const server = require("http").createServer(app);
+
+connectDB();
+
+const io = require("socket.io")(server);
+
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => console.log(`listening on port: ${PORT}`));
+
+const users = new Map();
+
+io.on("connection", (socket) => {
+  console.log("a user has connected.");
+
+  socket.on("addUser", (userId) => {
+    // if (users.has(userId)) return;
+    console.log(`User with the ${userId} has been added`);
+    users.set(userId, socket.id);
+    users.set(socket.id, userId);
+
+    io.emit("getUsers", users);
+  });
+
+  socket.on("sendMessage", ({ guestId, text, isGuest, emoji }) => {
+    const userSocket = users.get(
+      isGuest ? "62db74d0f53ffd33e36fb85a" : guestId
+    );
+
+    if (!userSocket) return console.log("socket not found", users);
+    console.log("💌 sendMessage:", text || emoji);
+    io.to(userSocket).emit("getMessage", {
+      isGuest,
+      guestId,
+      text,
+      updatedAt: new Date(),
+      emoji,
+    });
+  });
+
+  socket.on("disconnect", () => {
+    console.log("a user disconnected!");
+    users.delete(users.get(socket));
+    users.delete(socket);
+
+    io.emit("getUsers", users);
+  });
+});

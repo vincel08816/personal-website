@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import AppBar from "./AppBar";
+import Chat from "./Chat";
 import Footer from "./Footer";
 
 export default function BaseView({ children }) {
@@ -7,6 +8,7 @@ export default function BaseView({ children }) {
     <BaseStyle>
       <AppBar />
       <Main>{children}</Main>
+      <Chat />
       <Footer />
     </BaseStyle>
   );
@@ -24,7 +26,6 @@ const BaseStyle = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* width: 100vw; */
   min-height: 100vh;
   background-color: #f3f4f6;
   overflow-x: hidden;

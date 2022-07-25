@@ -17,39 +17,31 @@ export default function Footer() {
       </Section>
       <Center>Copyright © 2022 Vincent Lee. All rights reserved.</Center>
       <Section style={{ paddingRight: "38px" }}>
-        <a
+        <FooterIcon
           href="https://github.com/vincel08816/personal-website"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-            alt="github-footer"
-          />
-        </a>
-        <a
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+          alt="github-footer"
+        />
+        <FooterIcon
           href="https://www.linkedin.com/in/vincentlee28"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-            alt="linkedin-footer"
-          />
-        </a>
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+          alt="linkedin-footer"
+        />
       </Section>
     </StyledFooter>
   );
 }
 
+const FooterIcon = ({ href, src, alt }) => (
+  <a href={href} target="_blank" rel="noreferrer">
+    <img src={src} alt={alt} />
+  </a>
+);
+
 const Center = styled.div`
   display: flex;
-  flex: 1;
   justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 900px) {
-    flex: 0;
-  }
 `;
 
 const Section = styled.div`
@@ -59,10 +51,8 @@ const Section = styled.div`
     width: 40px;
     height: 40px;
     margin: 0 7px;
-    @media only screen and (max-width: 900px) {
-      width: 30px;
-      height: 30px;
-    }
+    width: 30px;
+    height: 30px;
   }
 `;
 
@@ -72,13 +62,9 @@ const StyledFooter = styled.footer`
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: center;
-  height: 100px;
   background-color: white;
   margin-left: 12px;
-  @media only screen and (max-width: 900px) {
-    flex-direction: column;
-    height: 150px;
-    justify-content: space-evenly;
-  }
+  flex-direction: column;
+  height: 170px;
+  justify-content: space-around;
 `;

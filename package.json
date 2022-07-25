@@ -1,6 +1,7 @@
 {
   "name": "personal-project",
   "version": "0.1.0",
+  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
     "@emotion/core": "10.1.1",
@@ -14,21 +15,43 @@
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "emoji-picker-react": "^3.5.1",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "http-proxy-middleware": "^2.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.6",
     "mui": "^0.0.1",
     "nth-check": "^2.1.1",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.1",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.4.20",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.0"
   },
+  "devDependencies": {
+    "concurrently": "^7.2.1",
+    "nodemon": "^2.0.16"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
+    "server": "nodemon --watch server server/server.js",
+    "start": "node server/server.js",
+    "client": "react-scripts start",
     "build": "CI= GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --detectOpenHandles",
+    "test-client": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
