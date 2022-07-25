@@ -8,6 +8,9 @@ connectDB();
 
 const io = require("socket.io")(server);
 
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => console.log(`listening on port: ${PORT}`));
+
 const users = new Map();
 
 io.on("connection", (socket) => {
@@ -46,6 +49,3 @@ io.on("connection", (socket) => {
     io.emit("getUsers", users);
   });
 });
-
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`listening on port: ${PORT}`));
