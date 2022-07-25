@@ -16,11 +16,13 @@ app.use(cp());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
+function ensureHttps(req, res, next) {
+  if (req.headers["x-forwarded-proto"] === "https") return next();
+  res.redirect("https://" + req.hostname + req.url);
+}
+
 if (process.env.PRODUCTION === "1") {
-  app.all("*", (req, res, next) => {
-    if (req.headers["x-forwarded-proto"] === "https") return next();
-    res.redirect("https://" + req.hostname + req.url);
-  });
+  app.all("*", ensureHttps);
 }
 
 app.use(function (req, res, next) {
@@ -39,10 +41,17 @@ app.use(express.static("build"));
 app.use("/message", require("../routes/message"));
 app.use("/auth", require("../routes/auth"));
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"), (err) => {
-    if (err) console.log(err);
+if (process.env.PRODUCTION === "1") {
+  app.get("/*", function (req, res) {
+    res.sendFile(
+      path.join(__dirname, "../build", "index.html"),
+      function (err) {
+        if (err) {
+          console.error(err);
+        }
+      }
+    );
   });
-});
+}
 
 module.exports = app;
