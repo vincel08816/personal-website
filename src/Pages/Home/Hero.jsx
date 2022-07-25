@@ -18,7 +18,7 @@ const DownloadButton = ({ children, disabled }) => {
 };
 
 export const Hero = () => (
-  <>
+  <Container>
     <Me>Vincent Lee</Me>
     <RandomLines>
       Software Engineer. JavaScript Fullstack. Mongo, Express, Node, ReactJS and
@@ -31,13 +31,13 @@ export const Hero = () => (
         </a>
       </DownloadButton>
     </ButtonContainer>
-  </>
+  </Container>
 );
-
 const Me = styled.h1`
   font-size: 75px;
   margin-bottom: 23px;
   font-weight: 900;
+
   @media only screen and (max-width: 600px) {
     font-size: 62px;
   }
@@ -48,6 +48,40 @@ const RandomLines = styled.h2`
   text-align: center;
   @media only screen and (max-width: 600px) {
     font-size: 20px;
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  ${RandomLines} {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: 0.15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: 0em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    /* The typing effect */
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+      from,
+      to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: black;
+      }
+    }
   }
 `;
 

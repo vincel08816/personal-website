@@ -37,4 +37,18 @@ const Container = styled.div`
   -ms-user-select: none;
   user-select: none;
   -khtml-user-select: none;
+
+  @keyframes fadeUp {
+    0% {
+      opacity: 0%;
+      transform: translateY(10%);
+    }
+    100% {
+      opacity: 100%;
+      transform: translateY(0);
+    }
+  }
+  transition-timing-function: ease-in;
+  transition: 1s;
+  animation: 1.5s ease-out 0s 1 fadeUp;
 `;
