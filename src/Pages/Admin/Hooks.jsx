@@ -44,7 +44,6 @@ export function useSocket(userData, chatMap, selectedId, setMessages) {
     if (!userData?._id) return;
     socket.current = io("");
     socket.current.on("getMessage", (data) => {
-      console.log(data);
       setPendingData(data);
     });
   }, [setPendingData, userData]);
@@ -56,7 +55,6 @@ export function useSocket(userData, chatMap, selectedId, setMessages) {
       let allMessages = res.data;
       if (!allMessages?.length) return;
       let tempChatMap = new Map();
-      console.log("fetched");
       allMessages.forEach((message) => {
         const messages = tempChatMap.get(message.guestId) || [];
         tempChatMap.set(message.guestId, [...messages, message]);
