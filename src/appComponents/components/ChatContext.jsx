@@ -19,7 +19,7 @@ export function ChatProvider({ children }) {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io(`ws://${window.location.hostname}:3000`);
+    socket.current = io(`wss://${window.location.hostname}:3000`);
     socket.current.on("getMessage", (data) => setPendingData(data));
   }, [setPendingData]);
 
