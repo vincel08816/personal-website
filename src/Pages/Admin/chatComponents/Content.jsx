@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useAdmin } from "../Admin";
 import Chatbox from "./Chatbox";
@@ -17,25 +17,23 @@ export default function Content() {
 function Conversation() {
   const { messages } = useAdmin();
 
-  const scrollRef = useRef();
+  const messagesEndRef = useRef();
 
-  // useEffect(() => {
-  //   scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-  // }, [messages]);
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView();
+  };
+
+  useEffect(scrollToBottom);
 
   return (
     <Container>
       <Messages>
         {messages?.map(({ text, isGuest, _id, emoji }) => (
-          <StyledMessage
-            key={_id}
-            isUser={!isGuest}
-            ref={scrollRef}
-            emoji={!!emoji}
-          >
+          <StyledMessage key={_id} isUser={!isGuest} emoji={!!emoji}>
             {emoji ? emoji : text}
           </StyledMessage>
         ))}
+        <div ref={messagesEndRef} />
       </Messages>
     </Container>
   );

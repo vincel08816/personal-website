@@ -8,12 +8,11 @@ function Messages() {
   const { messages } = useChat();
   const messageRef = useRef();
 
-  useEffect(() => {
-    messageRef.current.scrollIntoView({
-      screenTop: "100px",
-      behavior: "smooth",
-    });
-  }, [messages]);
+  const scrollToBottom = () => {
+    messageRef.current.scrollIntoView();
+  };
+
+  useEffect(scrollToBottom);
 
   return (
     <MessagesContainer>
