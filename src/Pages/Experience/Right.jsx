@@ -7,13 +7,12 @@ export default function Right() {
     <Container>
       <P>
         <b>Hello! My name is Vincent</b> and I have been developing at{" "}
-        <b>Simple Breakthrough</b> for 8 months. My main tech-stack includes{" "}
-        <i>MongoDB</i>, <i>Express</i>, <i>Node</i>, <i>EtherJS</i>, and{" "}
-        <i>React</i>, all of which is in <i>JavaScript(ES6+)</i> and hosted on{" "}
-        <i>Heroku</i>. Although my time working at Simple Breakthrough is short,
-        I have been able to take on multiple positions such as frontend,
-        backend, speaking with clients, and working with new hires and getting
-        them familiar with the codebase. The projects I worked on at Simple
+        <b>Simple Breakthrough</b>. My main tech-stack includes <i>MongoDB</i>,{" "}
+        <i>Express</i>, <i>Node</i>, <i>EtherJS</i>, and <i>React</i>, all of
+        which is in <i>JavaScript(ES6+)</i> and hosted on <i>Heroku</i>. I have
+        been able to take on multiple positions such as frontend, backend,
+        speaking with clients, and working with new hires and getting them
+        familiar with the codebase. The projects I worked on at Simple
         Breakthrough are listed below.
       </P>
       <Content />
