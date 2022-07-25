@@ -35,6 +35,9 @@ app.use(function (req, res, next) {
 });
 app.use(express.static("build"));
 
+app.use("/message", require("../routes/message"));
+app.use("/auth", require("../routes/auth"));
+
 if (process.env.PRODUCTION === "1") {
   app.get("/*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "../build/index.html"), (err) => {
@@ -42,8 +45,5 @@ if (process.env.PRODUCTION === "1") {
     });
   });
 }
-
-app.use("/message", require("../routes/message"));
-app.use("/auth", require("../routes/auth"));
 
 module.exports = app;
