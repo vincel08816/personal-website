@@ -15,7 +15,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
 if (process.env.PRODUCTION === "1") {
-  app.all("*", (req, res, next) => {
+  app.all("/*", (req, res, next) => {
     if (req.headers["x-forwarded-proto"] === "https") return next();
     res.redirect("https://" + req.hostname + req.url);
   });
