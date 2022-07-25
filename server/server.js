@@ -4,6 +4,8 @@ const connectDB = require("./modules/db");
 const app = require("./modules/app");
 const server = require("http").createServer(app);
 
+connectDB();
+
 const io = require("socket.io")(server);
 
 const users = new Map();
@@ -44,8 +46,6 @@ io.on("connection", (socket) => {
     io.emit("getUsers", users);
   });
 });
-
-connectDB();
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`listening on port: ${PORT}`));
