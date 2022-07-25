@@ -54,6 +54,7 @@ export function useSocket(userData, chatMap, selectedId, setMessages) {
 
     axios.get(`/message/all`).then((res) => {
       let allMessages = res.data;
+      if (!allMessages?.length) return;
       let tempChatMap = new Map();
       console.log("fetched");
       allMessages.forEach((message) => {

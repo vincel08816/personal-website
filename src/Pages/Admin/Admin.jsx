@@ -38,11 +38,8 @@ export default function Admin() {
   }, []);
 
   if (!userData) {
-    return isLoading ? (
-      <>Loading????</>
-    ) : (
-      <NoUser {...{ userData, isLoading, setUserData }} />
-    );
+    if (isLoading) return "Loading????";
+    return <NoUser {...{ userData, isLoading, setUserData }} />;
   }
 
   return (
