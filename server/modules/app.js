@@ -36,10 +36,8 @@ app.use(function (req, res, next) {
 app.use(express.static("build"));
 
 if (process.env.PRODUCTION === "1") {
-  app.get("*", (req, res) => {
-    let url = path.resolve(__dirname, "../build/index.html");
-    console.log(url);
-    res.sendFile(url, (err) => {
+  app.get("/*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../build/index.html"), (err) => {
       if (err) console.log(err);
     });
   });
