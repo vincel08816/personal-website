@@ -18,7 +18,7 @@ io.on("connection", (socket) => {
 
   socket.on("addUser", (userId) => {
     // if (users.has(userId)) return;
-    console.log("addUser");
+    console.log(`User with the ${userId} has been added`);
     users.set(userId, socket.id);
     users.set(socket.id, userId);
 

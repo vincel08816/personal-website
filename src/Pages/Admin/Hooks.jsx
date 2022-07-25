@@ -42,7 +42,7 @@ export function useSocket(userData, chatMap, selectedId, setMessages) {
 
   useEffect(() => {
     if (!userData?._id) return;
-    socket.current = io(`wss://${window.location.hostname}:3000`);
+    socket.current = io("");
     socket.current.on("getMessage", (data) => {
       console.log(data);
       setPendingData(data);
