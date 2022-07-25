@@ -21,6 +21,14 @@ if (process.env.PRODUCTION === "1") {
     if (req.headers["x-forwarded-proto"] === "https") return next();
     res.redirect("https://" + req.hostname + req.url);
   });
+
+  app.get("*", (req, res) => {
+    let url = path.resolve(__dirname, "../build/index.html");
+    console.log(url);
+    res.sendFile(url, (err) => {
+      if (err) console.log(err);
+    });
+  });
 }
 
 app.use(function (req, res, next) {
@@ -38,13 +46,5 @@ app.use(express.static("build"));
 
 app.use("/message", require("../routes/message"));
 app.use("/auth", require("../routes/auth"));
-
-app.get("*", (req, res) => {
-  let url = path.join(__dirname, "../build/index.html");
-  console.log(url);
-  res.sendFile(url, (err) => {
-    if (err) console.log(err);
-  });
-});
 
 module.exports = app;
