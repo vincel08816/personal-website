@@ -1,6 +1,6 @@
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import SendIcon from "@mui/icons-material/Send";
-import { Divider, IconButton, TextField } from "@mui/material";
+import { Divider, IconButton } from "@mui/material";
 import axios from "axios";
 import Picker from "emoji-picker-react";
 import React, { useState } from "react";
@@ -38,7 +38,10 @@ export default function Input() {
     setMessage(e.target.value);
   };
 
-  const sendMessage = () => {
+  const sendMessage = (e) => {
+    e.preventDefault();
+    if (message === "" || message.trim() === "") return;
+
     if (!guestId || !socket.current) return;
     axios
       .post("/message", { isGuest: true, guestId, text: message })
@@ -61,14 +64,14 @@ export default function Input() {
       </PickerContainer>
       <Divider />
       <TextFieldContainer>
-        <TextField
-          sx={{ flex: 1, padding: "12px", width: "100%" }}
-          placeholder="Write a reply"
-          variant="standard"
-          InputProps={{ disableUnderline: true }}
-          value={message}
-          onChange={handleOnChange}
-        />
+        <Form onSubmit={sendMessage}>
+          <InputField
+            placeholder="Write a reply"
+            type="text"
+            value={message}
+            onChange={handleOnChange}
+          />
+        </Form>
         <IconButton sx={sx} onClick={() => setEmojiOpen(!isEmojiOpen)}>
           <InsertEmoticonIcon />
         </IconButton>
@@ -81,6 +84,24 @@ export default function Input() {
     </>
   );
 }
+
+const Form = styled.form`
+  display: flex;
+  flex: 1;
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
+`;
+
+const InputField = styled.input`
+  flex: 1;
+  padding: 0 5px;
+  border: none;
+  background-color: transparent;
+`;
 
 const TextFieldContainer = styled.div`
   display: flex;

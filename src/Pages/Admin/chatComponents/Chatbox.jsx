@@ -13,6 +13,8 @@ export default function Chatbox() {
 
   const sendMessage = async (e) => {
     e.preventDefault();
+    if (newMessage === "" || newMessage.trim() === "") return;
+
     if (!selectedId) return;
     const payload = {
       key: Date.now(),
