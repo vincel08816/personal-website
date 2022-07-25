@@ -66,5 +66,4 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   height: 180px;
   justify-content: space-around;
-  z-index: 2;
 `;
